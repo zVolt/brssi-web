@@ -1,0 +1,21 @@
+{
+  "name": "brssi",
+  "homepage": "https://github.com/BRSSI/brssi_web",
+  "authors": [
+    "Zeeshan Khan <zkhan19093@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "brssi/static/components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "v4.0.0-alpha.5"
+  }
+}

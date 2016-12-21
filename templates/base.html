@@ -1,13 +1,74 @@
+{% load static %}
 <!DOCTYPE html>
 <html>
 	<head>
 	<title>BRSSI</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'components/bootstrap/dist/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 	{% block head %}
 	{% endblock %}
 	</head>
 	<body>
-		{% block body %}
-			this is awesomeee
+	 <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+	   <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-center">
+            <li><a href="#">Home</a></li>
+            <li><a href="#about">Admission</a></li>
+            <li><a href="#contact">Notices</a></li>
+			<li><a href="#contact">Student's Corner</a></li>
+			<li><a href="#contact">Other Information</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Barrackpore RS Success Institute</a>
+        </div>
+       
+      </div>
+    </nav>
+		
+		
+			<div class="jumbotron">
+				<div class="container">
+				<h1>Barrackpore R.S Success Institute</h1>
+				<p>Let's grow together</p>
+				</div>
+			</div>
+		
+		
+		<div class="container">
+			{% block body %}
+				<div class="col-sm-8">
+				<p>Barrackpore R.S Success Institute (BRSSI) came into existence in the year 2010 on 20th March. This institute was founded by SMT. RINA SAHA. At first it started functioning from Latbagan and after 2011 it shifted to its new address near Barrackpore Municipality. In our institute we basically offer private coaching session to students for Foundation course (Class I to Class XII) as well as Engineering course (Class XI to Class XII) also. We prepare students in a scientific way for different examinations of Schools, Institutes & Boards (West Bengal, CBSE, ICSE).</p>
+				<p>BRSSI wished to impart holistic education to the knowledge hungry brains of India for their academic excellence. We continually respond to the upcoming changes in the field of education and incorporate them to the best of our abilities. We strive to reach out to perfection through a diligent academic pursuit for excellence. We further envision ourselves as a valued and honored institute engaged in equipping students with knowledge and helping them realize their potentialities.</p>
+				<p>Our mission / goal is to become a nurturing ground for every student’s educational development, which will further make a remarkable changes in the society. We develop the human potentialities to the fullest extent so that the intellectually capable leaders can emerge in a wide range of professions. Our ultimate aim is to instill regularity and punctuality among the students and we strictly implement the academic calendar. Mutual respect, trust & honesty are the three pillars of our institute and we are thoroughly committed to them. </p>
+				</div>
+				
+				<div class="col-sm-4 card">
+					<marquee direction="up" class="news">
+						Under construction
+					</marquee>
+				</div>
+				
+			{% endblock %}
+		</div>
+		<div class="footer">
+			<div class="container">
+				Copyright &copy; @ BRSSI 2016
+			</div>
+		</div>
+		<script src="{% static 'components/jquery/dist/jquery.min.js' %}"></script>
+		<script src="{% static 'components/jquery/tether/dist/tether.min.js' %}"></script>
+		<script src="{% static 'components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+		
+		{% block script %}
 		{% endblock %}
 	</body>
 </html>
