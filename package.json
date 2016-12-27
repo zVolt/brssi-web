@@ -1,0 +1,11 @@
+{
+  "name": "brssi",
+  "description": "brssi",
+  "version": "0.0.1",
+  "engines": {
+    "npm": "2.1.x"
+  }
+  "scripts": {
+	"postinstall": "bower install"
+	}
+}
