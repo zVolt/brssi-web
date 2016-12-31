@@ -1,10 +1,14 @@
 from django.shortcuts import render
+from . models import Notice, Testimonial
 
-# Create your views here.
+
 def index(request):
-	print 'index'
-	return render(request,'home/index.html')
+    data=dict()
+    data['notices']=Notice.objects.all()
+    data['testimonials']=Testimonial.objects.all()
+    return render(request,'home/index.html',data)
+
 
 def disclaimer(request):
-	print 'disclaimer'
-	return render(request,'home/disclaimer.html')
+    print 'disclaimer'
+    return render(request,'home/disclaimer.html')

@@ -1,17 +1,52 @@
 {% extends 'base.html' %}
-
+{% load static %}
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="{%  static 'components/slick-carousel/slick/slick.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{%  static 'components/slick-carousel/slick/slick-theme.css' %}"/>
+    <link href="https://fonts.googleapis.com/css?family=Caveat:400,700" rel="stylesheet">
+{% endblock %}
+{% block script %}
+    <script type="text/javascript" src="{%  static 'components/slick-carousel/slick/slick.min.js' %}"></script>
+    <script>
+        $(document).ready(function(){
+            $('.slider').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay:true,
+                autoplaySpeed: 2000,
+                lazyLoad: 'ondemand',
+        });
+            $('.testimonial').slick({
+                infinite: true,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+            });
+        });
+    </script>
+{% endblock %}
 {% block body %}
-    <div class="row ">
-        <div class="column ">
-            <div class="ui jumbotron message ">
-                <h1 class="ui header">
-                    Barrackpore R.S Success Institute
-                </h1>
-                <p class="left">Let's grow together</p>
 
+            <div class="slider">
+
+                <div class="slide-item fill">
+                    <img data-lazy="{% static 'img/banner1.jpg' %}"/>
+                </div>
+                <div class="slide-item fill" >
+                    <img data-lazy="{% static 'img/banner2.jpg' %}"/>
+                </div>
+                <div class="slide-item fill" >
+                    <img data-lazy="{% static 'img/banner3.jpg' %}"/>
+                </div>
+                <div class="slide-item fill" >
+                    <img data-lazy="{% static 'img/banner4.jpg' %}"/>
+                </div>
             </div>
-        </div>
-    </div>
+
     <br/>
     <div class="ui container">
         <div class="ui grid">
@@ -56,35 +91,42 @@
 
                 </div>
 
-                <div class="ui segment">
-                    <div class="ui red ribbon label">Testimonial</div>
-                    <p>
-                        <br/>
-
-                    </p>
-                    <div class="ui container right aligned">
-                        <div class="ui button primary mini">Read More ></div>
+                <div class="ui container">
+                    <div class="testimonial">
+                        {% for t in testimonials %}
+                            <div>
+                                <i class="fa fa-quote-left fa-2x" style="color: #CCCCCC"></i>  {{ t.content }} - <small>{{ t.name }}</small>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
 
 
             </div>
             <div class="six wide column">
-                <h3 class="ui top attached header inverted small">Notice Board</h3>
+            <div class="ui top attached blue header small">
+                <div class="ui header inverted white small">Notice Board</div>
+            </div>
                 <div class="ui attached segment">
                     <marquee class="description" direction="up" onmouseover="this.stop();"
                              onmouseout="this.start();" style="min-height:200px">
-                        BRSSI under construction
+                        {% for notice in notices %}
+                            {{ notice.content | safe }}
+                            {% if not forloop.last %}
+                                <br/>
+                                <br/>
+                            {% endif %}
+                        {% endfor %}
                     </marquee>
                 </div>
 
                 <div class="ui segment">
-                    <Video>
-
-                    </Video>
+                    <iframe width="100%" src="https://www.youtube.com/embed/c6rP-YP4c5I" frameborder="0" allowfullscreen></iframe>
                 </div>
 
-                <h3 class="ui top attached header inverted small">Poll</h3>
+                <h3 class="ui top attached header blue small">
+                    <div class="ui header inverted white small">Poll</div>
+                </h3>
                 <div class="ui attached segment">
 
                     <div class="description">

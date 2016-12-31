@@ -1,25 +1,53 @@
 $default-color: #2185D0;
+$color-default-bg: #ececec;
+$fucking-color: #4285f4;
 
-.jumbotron{
-	padding-top:80px !important;
-	padding-bottom:80px !important;
+.slide-item {
+  //padding-top: 90px !important;
+  //padding-bottom: 80px !important;
+  //padding-right:20px;
+  //padding-left: 20px;
+  color:white;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-	.container{
-		
-	}
-}
-body{	
-	margin-top:50px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-}
-.news{
-	min-height:300px;
-	height:300px
+  img {
+    max-width: 100%;
+  }
 }
 
-.fa{
-	margin-right: 10px;
+body {
+  margin-top: 40px;
+  background-color: $color-default-bg;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
-.ui.top.attached.header{
-	background-color:$default-color;
+
+.news {
+  min-height: 300px;
+  height: 300px
+}
+
+.fa {
+  margin-right: 10px;
+}
+
+.ui.top.attached.header {
+  background-color: $default-color;
+}
+.blue, .primary{
+  background-color: #357ae8 !important;
+  background-image:  -webkit-linear-gradient(top,#4d90fe,#357ae8) !important;
+}
+.blue.header{
+  color:white !important;
+}
+.notice-header{
+  margin:10px;
+}
+.testimonial{
+  font-family: 'Caveat', cursive !important;
+  font-size: 2em;
+  line-height: 140%;
+  small{
+    font-size: 1em;
+    color:#aaa;
+  }
 }
