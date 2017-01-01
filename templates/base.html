@@ -90,13 +90,25 @@
                 {% block footer %}
                 {% endblock %}
             </div>
+            <div class="nine wide right aligned column">
+                <p> Developed and Maintained by Coders</p>
+                <!-- Start of StatCounter Code for Default Guide -->
+                <noscript>
+                    <div class="statcounter">
+                        <a title="web statistics" href="http://statcounter.com/" target="_blank">
+                            <img class="statcounter" src="//c.statcounter.com/10318076/0/b5e297ef/0/" alt="webstatistics"/>
+                        </a>
+                    </div>
+                </noscript>
+                <!-- End of StatCounter Code for Default Guide -->
+            </div>
         </div>
     </div>
 </div>
 
-<script src="{% static 'components/jquery/dist/jquery.min.js' %}"></script>
-<script src="{% static 'components/semantic/dist/semantic.min.js' %}"></script>
-<script>
+<script type="text/javascript" src="{% static 'components/jquery/dist/jquery.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'components/semantic/dist/semantic.min.js' %}"></script>
+<script type="text/javascript">
     $(document)
             .ready(function () {
                 $('.ui.menu .ui.dropdown').dropdown({
@@ -113,6 +125,17 @@
                 ;
             })
     ;
+
+    var sc_project = 10318076;
+    var sc_invisible = 0;
+    var sc_security = "b5e297ef";
+    var sc_text = 2;
+    var scJsHost = (("https:" == document.location.protocol) ?
+            "https://secure." : "http://www.");
+    document.write("<sc" + "ript type='text/javascript' src='" +
+            scJsHost +
+            "statcounter.com/counter/counter.js'></" + "script>");
+
 </script>
 {% block script %}
 

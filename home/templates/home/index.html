@@ -4,7 +4,8 @@
     <link rel="stylesheet" type="text/css" href="{% static 'components/slick-carousel/slick/slick.css' %}"/>
     <link rel="stylesheet" type="text/css" href="{% static 'components/slick-carousel/slick/slick-theme.css' %}"/>
     <link href="https://fonts.googleapis.com/css?family=Caveat:400,700" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i' rel='stylesheet'
+          type='text/css'>
     <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
 {% endblock %}
 {% block script %}
@@ -27,7 +28,30 @@
                 slidesToShow: 1,
                 slidesToScroll: 1,
             });
+            $('.video-slider').slick({
+                dots: true,
+                infinite: true,
+                autoplay: true,
+                autoplaySpeed: 3000,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+            });
+
         });
+        function initMap() {
+            var location = {lat: 26.867932, lng: 81.015902};
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: location
+            });
+            var marker = new google.maps.Marker({
+                position: location,
+                map: map
+            });
+        }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9ZFj-oA2mg4hgqi9gJoJ0M8wigSz3PeI&callback=initMap">
     </script>
 {% endblock %}
 {% block body %}
@@ -67,40 +91,48 @@
             <div class="ten wide column">
                 <div class="ui segments">
                     <div class="ui segment">
-                        <div class="ui red ribbon label">About Us</div>
+                        <div class="ui red ribbon label">Key Points of BRSSI</div>
+                        <h4>Study Material</h4>
+                        <p>
+                            Covering each and every intricate concept along with proper illustrations. Classroom
+                            Discussion Problem, On-line Tests and Home Assignments.
+                        </p>
+                        <h4>24 x 7 Doubt Clearing</h4>
+                        <p>
+                            The main objective of doubt clearing class/session is to provide additional attention and
+                            support (by BRSSI) to the students. It generally helps those students who couldn't
+                            understand a concept at the beginning. It is a One to One Discussion Forum between the
+                            student and the teacher.
+                        </p>
+                        <h4>Performance Analysis</h4>
+                        <p>
+                            The academic performance of a student is analyzed and studied at Micro level (i.e. subject
+                            wise, topic wise and question wise) and special academic initiatives are taken to improve
+                            the performance
+                        </p>
+
+                    </div>
+                    <div class="ui segment">
+                        <h3 class="ui red ribbon label">About Us</h3>
                         <p>
                             <br/>
                             Barrackpore R.S Success Institute (BRSSI) came into existence in the year 2010 on 20th
-                            March.
-                            This institute was founded by SMT. RINA SAHA. At first it started functioning from Latbagan
-                            and after 2011 it
-                            shifted to its new address near Barrackpore Municipality. In our institute we basically
-                            offer private
-                            coaching session to students for Foundation course (Class I to Class XII) as well as
-                            Engineering course (Class XI to Class XII) also. We prepare students in a scientific way for
-                            different
-                            examinations of Schools, Institutes & Boards (West Bengal, CBSE, ICSE).
+                            March. This institute was founded by SMT. RINA SAHA. At first it started functioning from
+                            Latbagan and after 2011 it shifted to its new address near Barrackpore Municipality. In our
+                            institute we basically offer private coaching session to students for Foundation course
+                            (Class I to Class XII) as well as Engineering course (Class XI to Class XII) also. We
+                            prepare students in a scientific way for different examinations of Schools, Institutes &
+                            Boards (West Bengal, CBSE, ICSE).
+                            BRSSI wished to impart holistic education to the knowledge hungry brains of India for their
+                            academic excellence. We continually respond to the upcoming changes in the field of
+                            education and incorporate them to the best of our abilities. We strive to reach out to
+                            perfection through a diligent academic pursuit for excellence. We further envision ourselves
+                            as a valued and honored institute engaged in equipping students with knowledge and helping
+                            them realize their potentialities.
                         </p>
                         <div class="ui container right aligned">
                             <div class="ui button primary mini">Read More ></div>
                         </div>
-                    </div>
-                    <div class="ui segment">
-                        <h3 class="ui red ribbon label">Why BRSSI?</h3>
-                        <p>
-                            <br/>
-                            BRSSI wished to impart holistic education to the knowledge hungry brains of
-                            India for their
-                            academic
-                            excellence. We continually respond to the upcoming changes in the field of education and
-                            incorporate
-                            them to the best of our abilities. We strive to reach out to perfection through a diligent
-                            academic
-                            pursuit for excellence. We further envision ourselves as a valued and honored institute
-                            engaged
-                            in
-                            equipping students with knowledge and helping them realize their potentialities.
-                        </p>
                     </div>
 
                 </div>
@@ -121,7 +153,7 @@
 
             </div>
             <div class="six wide column">
-                <div class="ui top attached blue header small">
+                <div class="ui top attached blue header small board-heading">
                     <div class="ui header inverted white small">Notice Board</div>
                 </div>
                 <div class="ui attached segment">
@@ -137,16 +169,31 @@
                     </marquee>
                 </div>
 
-                <div class="">
-                    <iframe width="100%" src="https://www.youtube.com/embed/c6rP-YP4c5I" frameborder="0"
-                            allowfullscreen></iframe>
+                <div class="ui container segment" style="padding: 0px; border-bottom: 0px">
+                    <div class="video-slider">
+                        <div class="vslider-item">
+                        <iframe height="300px" width="100%" src="https://www.youtube.com/embed/jHQGyMBtE9Y?rel=0&amp;wmode=opaque"
+                                frameborder="0"
+                                allowfullscreen></iframe></div>
+                        <div class="vslider-item">
+                            <iframe height="300px" width="100%" src="https://www.youtube.com/embed/c6rP-YP4c5I"
+                                    frameborder="0"
+                                    allowfullscreen></iframe></div>
+                        <div class="vslider-item">
+                            <iframe height="300px" width="100%" src="https://www.youtube.com/embed/c6rP-YP4c5I"
+                                    frameborder="0"
+                                    allowfullscreen></iframe></div>
+                    </div>
                 </div>
 
-                <h3 class="ui top attached header blue small">
+                <div class="ui segment">
+                    <div id="map"></div>
+                </div>
+
+                <h3 class="ui top attached header blue small board-heading">
                     <div class="ui header inverted white small">Poll</div>
                 </h3>
                 <div class="ui attached segment">
-
                     <div class="description">
 
                     </div>
