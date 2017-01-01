@@ -29,6 +29,10 @@ p {
   .footer h4 {
     font-family: Roboto !important;
     font-size: 1.2em !important; }
+  .footer a {
+    color: white; }
+    .footer a :hover, .footer a :active, .footer a :hover:active {
+      color: white !important; }
 
 .login-icon {
   height: 22px !important;

@@ -40,6 +40,12 @@ p{
   }
   font-family: Roboto !important;
   font-size: 0.8em !important;
+  a{
+    color: white;
+    :hover,:active,:hover:active{
+      color: white !important;
+    }
+  }
 }
 .login-icon{
   height: 22px !important;
