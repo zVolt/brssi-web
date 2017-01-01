@@ -80,6 +80,6 @@ class Faculty(models.Model):
 class Testimonial(models.Model):
     content=models.TextField()
     name=models.CharField(max_length=100)
-
+    # image=models.ImageField()
     def __str__(self):
         return self.content

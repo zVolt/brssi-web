@@ -2,24 +2,14 @@ $default-color: #2185D0;
 $color-default-bg: #ececec;
 $fucking-color: #4285f4;
 
-.slide-item {
-  //padding-top: 90px !important;
-  //padding-bottom: 80px !important;
-  //padding-right:20px;
-  //padding-left: 20px;
-  color:white;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  img {
-    max-width: 100%;
-  }
-}
-
 body {
   margin-top: 40px;
   background-color: $color-default-bg;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
-
+p{
+  line-height: 1.7em;
+}
 .news {
   min-height: 300px;
   height: 300px
@@ -32,22 +22,35 @@ body {
 .ui.top.attached.header {
   background-color: $default-color;
 }
-.blue, .primary{
+
+.blue, .primary {
   background-color: #357ae8 !important;
-  background-image:  -webkit-linear-gradient(top,#4d90fe,#357ae8) !important;
+  background-image: -webkit-linear-gradient(top, #4d90fe, #357ae8) !important;
 }
-.blue.header{
-  color:white !important;
+
+.blue.header {
+  color: white !important;
 }
-.notice-header{
-  margin:10px;
+
+.notice-header {
+  margin: 10px;
 }
-.testimonial{
-  font-family: 'Caveat', cursive !important;
-  font-size: 2em;
-  line-height: 140%;
-  small{
-    font-size: 1em;
-    color:#aaa;
+
+
+.footer {
+  h4{
+    font-family: Roboto !important;
+    font-size: 1.2em !important;
   }
+  font-family: Roboto !important;
+  font-size: 0.8em !important;
+}
+.login-icon{
+  height: 22px !important;
+  width: 22px !important;
+  padding:4px;
+}
+.ui.menu .ui.dropdown .menu > .active.item {
+  //font-weight: normal !important;
+  background-color: rgba(0,0,0,.1)!important;
 }

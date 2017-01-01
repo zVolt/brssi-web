@@ -1,24 +1,25 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block head %}
-    <link rel="stylesheet" type="text/css" href="{%  static 'components/slick-carousel/slick/slick.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{%  static 'components/slick-carousel/slick/slick-theme.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'components/slick-carousel/slick/slick.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'components/slick-carousel/slick/slick-theme.css' %}"/>
     <link href="https://fonts.googleapis.com/css?family=Caveat:400,700" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
 {% endblock %}
 {% block script %}
-    <script type="text/javascript" src="{%  static 'components/slick-carousel/slick/slick.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'components/slick-carousel/slick/slick.min.js' %}"></script>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             $('.slider').slick({
                 dots: true,
                 infinite: true,
                 speed: 300,
                 slidesToShow: 1,
                 slidesToScroll: 1,
-                autoplay:true,
+                autoplay: true,
                 autoplaySpeed: 2000,
-                lazyLoad: 'ondemand',
-        });
+            });
             $('.testimonial').slick({
                 infinite: true,
                 autoplay: true,
@@ -31,21 +32,34 @@
 {% endblock %}
 {% block body %}
 
-            <div class="slider">
+    <div class="slider">
 
-                <div class="slide-item fill">
-                    <img data-lazy="{% static 'img/banner1.jpg' %}"/>
-                </div>
-                <div class="slide-item fill" >
-                    <img data-lazy="{% static 'img/banner2.jpg' %}"/>
-                </div>
-                <div class="slide-item fill" >
-                    <img data-lazy="{% static 'img/banner3.jpg' %}"/>
-                </div>
-                <div class="slide-item fill" >
-                    <img data-lazy="{% static 'img/banner4.jpg' %}"/>
-                </div>
+        <div class="slide-item slide-1">
+            <div class="content">
+                <h3 class="ui huge inverted white header">Let’s Grow together</h3>
+                <p>dgdfg</p>
             </div>
+            {#            <img data-lazy="{% static 'img/banner1.jpg' %}"/>#}
+        </div>
+        <div class="slide-item slide-2">
+            <div class="content">
+                <h3 class="ui huge inverted white header">dddProper Guidance, Technology and Fun makes learning more
+                    FAST</h3>
+                <p class="">Our mission / goal is to become a nurturing ground for every student’s educational
+                    development, which
+                    will further make a remarkable change in the society.</p>
+            </div>
+            {#            <img data-lazy="{% static 'img/banner3.jpg' %}"/>#}
+        </div>
+        <div class="slide-item slide-3">
+            <div class="content">
+                <h3 class="ui huge inverted white header">Be different to be the best</h3>
+                <p>Mutual respect, trust & honesty are the three pillars of our institute and we are thoroughly
+                    committed to them</p>
+            </div>
+            {#            <img data-lazy="{% static 'img/banner4.jpg' %}"/>#}
+        </div>
+    </div>
 
     <br/>
     <div class="ui container">
@@ -95,7 +109,10 @@
                     <div class="testimonial">
                         {% for t in testimonials %}
                             <div>
-                                <i class="fa fa-quote-left fa-2x" style="color: #CCCCCC"></i>  {{ t.content }} - <small>{{ t.name }}</small>
+                                <img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"
+                                     class="ui small left floated circular inline image"/> <i
+                                    class="fa fa-quote-left fa-2x" style="color: #CCCCCC"></i> {{ t.content }} -
+                                <small>{{ t.name }}</small>
                             </div>
                         {% endfor %}
                     </div>
@@ -104,9 +121,9 @@
 
             </div>
             <div class="six wide column">
-            <div class="ui top attached blue header small">
-                <div class="ui header inverted white small">Notice Board</div>
-            </div>
+                <div class="ui top attached blue header small">
+                    <div class="ui header inverted white small">Notice Board</div>
+                </div>
                 <div class="ui attached segment">
                     <marquee class="description" direction="up" onmouseover="this.stop();"
                              onmouseout="this.start();" style="min-height:200px">
@@ -120,8 +137,9 @@
                     </marquee>
                 </div>
 
-                <div class="ui segment">
-                    <iframe width="100%" src="https://www.youtube.com/embed/c6rP-YP4c5I" frameborder="0" allowfullscreen></iframe>
+                <div class="">
+                    <iframe width="100%" src="https://www.youtube.com/embed/c6rP-YP4c5I" frameborder="0"
+                            allowfullscreen></iframe>
                 </div>
 
                 <h3 class="ui top attached header blue small">

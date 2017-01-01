@@ -1,13 +1,10 @@
-.slide-item {
-  color: white;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
-  .slide-item img {
-    max-width: 100%; }
-
 body {
   margin-top: 40px;
   background-color: #ececec;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
+
+p {
+  line-height: 1.7em; }
 
 .news {
   min-height: 300px;
@@ -29,12 +26,19 @@ body {
 .notice-header {
   margin: 10px; }
 
-.testimonial {
-  font-family: 'Caveat', cursive !important;
-  font-size: 2em;
-  line-height: 140%; }
-  .testimonial small {
-    font-size: 1em;
-    color: #aaa; }
+.footer {
+  font-family: Roboto !important;
+  font-size: 0.8em !important; }
+  .footer h4 {
+    font-family: Roboto !important;
+    font-size: 1.2em !important; }
+
+.login-icon {
+  height: 22px !important;
+  width: 22px !important;
+  padding: 4px; }
+
+.ui.menu .ui.dropdown .menu > .active.item {
+  background-color: rgba(0, 0, 0, 0.1) !important; }
 
 /*# sourceMappingURL=main.css.map */

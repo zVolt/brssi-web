@@ -1,0 +1,26 @@
+.slide-item {
+  padding: 150px 20px 150px 20px;
+  color: black;
+  align-content: center;
+  text-align: center; }
+
+.slide-1 {
+  background: url("../img/banner1.jpg") no-repeat center center; }
+
+.slide-2 {
+  background: url("../img/banner3.jpg") no-repeat center center; }
+
+.slide-3 {
+  background: url("../img/banner4.jpg") no-repeat center center; }
+
+.testimonial {
+  font-family: 'Product Sans', Arial, sans-serif !important;
+  line-height: 140%; }
+  .testimonial small {
+    font-size: 1em;
+    color: #aaa; }
+  .testimonial .image {
+    width: 96px !important;
+    height: 96px !important; }
+
+/*# sourceMappingURL=index.css.map */
