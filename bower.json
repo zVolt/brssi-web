@@ -19,6 +19,7 @@
     "bootstrap": "v4.0.0-alpha.5",
     "semantic": "semantic-ui#^2.2.7",
     "font-awesome": "^4.7.0",
-    "slick-carousel": "^1.6.0"
+    "slick-carousel": "^1.6.0",
+    "wow": "wowjs#^1.1.2"
   }
 }

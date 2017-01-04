@@ -8,4 +8,29 @@
   padding-bottom: 10px;
   transition: 500ms; }
 
+.footer {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background: #2C3E50;
+  color: #fff;
+  font-weight: normal;
+  font-family: 'Ubuntu Mono', monospace; }
+  .footer p {
+    font-size: 15px; }
+  .footer h1,
+  .footer h2,
+  .footer h3,
+  .footer h5,
+  .footer h6 {
+    font-family: 'Comfortaa', cursive; }
+  .footer h4 {
+    font-family: 'Comfortaa', cursive;
+    font-size: 16px; }
+  .footer a {
+    color: #fff;
+    text-decoration: none; }
+    .footer a :hover {
+      text-decoration: none;
+      color: #b3b3b3; }
+
 /*# sourceMappingURL=main.css.map */
