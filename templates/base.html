@@ -33,9 +33,9 @@
     <title>Welcome to BRSSI</title>
 
     <link rel="stylesheet" type="text/css" href="{% static 'components/bootstrap/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/theme.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'components/font-awesome/css/font-awesome.min.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
     {% block head %}
     {% endblock %}
 </head>
@@ -74,7 +74,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">Other Information <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Rules & Regulation</a></li>
+                        <li><a href="#">Rules &amp; Regulation</a></li>
                         <li><a href="#">Fees Structure</a></li>
                         <li><a href="#">Faculty Members</a></li>
                     </ul>
@@ -88,78 +88,6 @@
 </nav>
 {% block body %}
 {% endblock %}
-<!-- <div class="ui borderless top fixed menu blue inverted">
-    <div class="header item">
-        <h3 class="ui inverted white header">Barrackpore R.S Success Institute</h3>
-    </div>
-
-
-    <div class="right menu">
-
-        <a class="item" href="#home">Home</a>
-        <a class="item" href="#admission">Admission</a>
-        <div class="ui dropdown item">
-            Student's Corner
-            <i class="dropdown icon"></i>
-            <div class="menu blue inverted">
-                <div class="item" style="color:white !important;">
-                    <span class="text">Result</span>
-                    <i class="dropdown icon"></i>
-                    <div class="menu blue inverted">
-                        <div class="item" style="color:white !important;">Institute Result</div>
-                        <div class="item" style="color:white !important;">Board Result</div>
-                    </div>
-                </div>
-                <div class="item" style="color:white !important;">
-                    <span class="text">Scholarship</span>
-                </div>
-            </div>
-        </div>
-        <div class="ui dropdown item">
-            Other information
-            <i class="dropdown icon"></i>
-            <div class="menu blue inverted">
-                <div class="item" style="color:white !important;">Rules & Regulation</div>
-                <div class="item" style="color:white !important;">Fees Structure</div>
-                <div class="item" style="color:white !important;">Faculty Members</div>
-            </div>
-        </div>
-
-        <a class="item" href="#contact">Contact Us</a>
-        <a class="item" href="#gallery">Gallery</a>
-        <a class="item" href="/login"><img class="login-icon" src="{% static '/img/login-icon.png' %}"/> Login</a>
-    </div>
-</div> -->
-
-<!-- <br/>
-<div class="ui inverted vertical footer segment">
-    <div class="ui container">
-        <div class="ui stackable inverted divided equal height stackable grid">
-            <div class="seven wide column">
-                <h4>Barrackpore R.S Success Institute</h4>
-                <p>&copy; Copyright BRSSI 2016</p>
-                <a href="/disclaimer">Disclaimer</a>
-                {% block footer %}
-                {% endblock %}
-            </div>
-            <div class="nine wide right aligned column">
-                <p> Developed and Maintained by Coders</p>
-                
-                <div class="statcounter">
-                    <a title="web statistics" href="http://statcounter.com/" target="_blank"> Visitors count:
-                        <img class="statcounter" src="//c.statcounter.com/10318076/0/b5e297ef/0/"
-                             alt="webstatistics"/></a>
-                </div>
-                <a href="https://www.facebook.com/brssi.edu"><i class="fa fa-facebook fa-lg"></i></a>
-                <a href="https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=12&cad=rja&uact=8&ved=0CEYQFjAL&url=https%3A%2F%2Fplus.google.com%2F101515951650803480714&ei=mrryVO3SPIqGuATp3YGQBA&usg=AFQjCNGqIp97NiAYSW02woiucXmBnI9QiQ&bvm=bv.87269000,d.c2E"<i
-                    class="fa fa-google fa-lg"></i></a>
-                <a href="http://in.linkedin.com/in/brssi"><i class="fa fa-linkedin fa-lg"></i></a>
-               
-            </div>
-        </div>
-    </div>
-</div> -->
-
 <script type="text/javascript" src="{% static 'components/jquery/dist/jquery.min.js' %}"></script>
 <script type="text/javascript" src="{% static 'components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
 <script type="text/javascript">
@@ -172,11 +100,11 @@
     });
     $(window).scroll(function () {
         if (($(window).scrollTop()) <= 150) {
-            $('#primary_navbar').addClass('navbar-transparent');
-            $('#primary_navbar').addClass('navbar-inverse');
-        }else{
-            $('#primary_navbar').removeClass('navbar-transparent');
+            $('#primary_navbar').addClass('navbar-default');
             $('#primary_navbar').removeClass('navbar-inverse');
+        }else{
+            $('#primary_navbar').addClass('navbar-inverse');
+            $('#primary_navbar').removeClass('navbar-default');
         }
     });
 </script>
@@ -185,4 +113,3 @@
 {% endblock %}
 </body>
 </html>
-				

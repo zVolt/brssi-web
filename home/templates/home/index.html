@@ -1,204 +1,180 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block head %}
-    <link rel="stylesheet" type="text/css" href="{% static 'components/slick-carousel/slick/slick.css' %}"/>
-    <link rel="stylesheet" type="text/css" href="{% static 'components/slick-carousel/slick/slick-theme.css' %}"/>
-    <link href="https://fonts.googleapis.com/css?family=Caveat:400,700" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Product+Sans:400,400i,700,700i' rel='stylesheet'
-          type='text/css'>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
-{% endblock %}
-{% block script %}
-    <script type="text/javascript" src="{% static 'components/slick-carousel/slick/slick.min.js' %}"></script>
-    <script>
-        $(document).ready(function () {
-            $('.slider').slick({
-                dots: true,
-                infinite: true,
-                speed: 300,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 2000,
-            });
-            $('.testimonial').slick({
-                infinite: true,
-                autoplay: true,
-                autoplaySpeed: 3000,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-            });
-            $('.video-slider').slick({
-                dots: true,
-                infinite: true,
-                autoplay: true,
-                autoplaySpeed: 3000,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-            });
-
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'components/slick-carousel/slick/slick.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'components/slick-carousel/slick/slick-theme.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}"> {% endblock %} {% block script %}
+<script type="text/javascript" src="{% static 'components/slick-carousel/slick/slick.min.js' %}"></script>
+<script>
+    $(document).ready(function() {
+        $('.slider').slick({
+            dots: true,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
         });
-        function initMap() {
-            var location = {lat: 26.867932, lng: 81.015902};
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 12,
-                center: location
-            });
-            var marker = new google.maps.Marker({
-                position: location,
-                map: map
-            });
-        }
-    </script>
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoi1Y4mrLLKnuouFCnzVICbo5dRUtVPSs&callback=initMap">
-    </script>
-{% endblock %}
-{% block body %}
+        $('.testimonial').slick({
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+        });
+        $('.video-slider').slick({
+            dots: true,
+            infinite: true,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+        });
 
-    <div class="slider">
+    });
 
-        <div class="slide-item slide-1">
-            <div class="content">
-                <h3 class="ui huge inverted white header">Let’s Grow together</h3>
-                <p>dgdfg</p>
-            </div>
-            {#            <img data-lazy="{% static 'img/banner1.jpg' %}"/>#}
+    function initMap() {
+        var location = {
+            lat: 26.867932,
+            lng: 81.015902
+        };
+        var map = new google.maps.Map(document.getElementById('map'), {
+            zoom: 12,
+            center: location
+        });
+        var marker = new google.maps.Marker({
+            position: location,
+            map: map
+        });
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoi1Y4mrLLKnuouFCnzVICbo5dRUtVPSs&callback=initMap">
+</script>
+{% endblock %} {% block body %}
+
+<div class="slider">
+
+    <div class="slide-item slide-1">
+        <div class="content">
+            <h3 class="ui huge inverted white header">Let’s Grow together</h3>
+            <p>dgdfg</p>
         </div>
-        <div class="slide-item slide-2">
-            <div class="content">
-                <h3 class="ui huge inverted white header">dddProper Guidance, Technology and Fun makes learning more
+        {# <img data-lazy="{% static 'img/banner1.jpg' %}" />#}
+    </div>
+    <div class="slide-item slide-2">
+        <div class="content">
+            <h3 class="ui huge inverted white header">Proper Guidance, Technology and Fun makes learning more
                     FAST</h3>
-                <p class="">Our mission / goal is to become a nurturing ground for every student’s educational
-                    development, which
-                    will further make a remarkable change in the society.</p>
-            </div>
-            {#            <img data-lazy="{% static 'img/banner3.jpg' %}"/>#}
+            <p class="">Our mission / goal is to become a nurturing ground for every student’s educational development, which will further make a remarkable change in the society.</p>
         </div>
-        <div class="slide-item slide-3">
-            <div class="content">
-                <h3 class="ui huge inverted white header">Be different to be the best</h3>
-                <p>Mutual respect, trust & honesty are the three pillars of our institute and we are thoroughly
-                    committed to them</p>
-            </div>
-            {#            <img data-lazy="{% static 'img/banner4.jpg' %}"/>#}
-        </div>
+        {# <img data-lazy="{% static 'img/banner3.jpg' %}" />#}
     </div>
+    <div class="slide-item slide-3">
+        <div class="content">
+            <h3 class="ui huge inverted white header">Be different to be the best</h3>
+            <p>Mutual respect, trust &amp; honesty are the three pillars of our institute and we are thoroughly committed to them</p>
+        </div>
+        {# <img data-lazy="{% static 'img/banner4.jpg' %}" />#}
+    </div>
+</div>
 
-    <br/>
-    <div class="ui container">
-        <div class="ui grid">
-            <div class="ten wide column">
-                <div class="ui segments">
-                    <div class="ui segment">
-                        <div class="ui red ribbon label">Key Points of BRSSI</div>
-                        <h4>Study Material</h4>
-                        <p>
-                            Covering each and every intricate concept along with proper illustrations. Classroom
-                            Discussion Problem, On-line Tests and Home Assignments.
-                        </p>
-                        <h4>24 x 7 Doubt Clearing</h4>
-                        <p>
-                            The main objective of doubt clearing class/session is to provide additional attention and
-                            support (by BRSSI) to the students. It generally helps those students who couldn't
-                            understand a concept at the beginning. It is a One to One Discussion Forum between the
-                            student and the teacher.
-                        </p>
-                        <h4>Performance Analysis</h4>
-                        <p>
-                            The academic performance of a student is analyzed and studied at Micro level (i.e. subject
-                            wise, topic wise and question wise) and special academic initiatives are taken to improve
-                            the performance
-                        </p>
-
-                    </div>
-                    <div class="ui segment">
-                        <h3 class="ui red ribbon label">About Us</h3>
-                        <p>
-                            <br/>
-                            Barrackpore R.S Success Institute (BRSSI) came into existence in the year 2010 on 20th
-                            March. This institute was founded by SMT. RINA SAHA. At first it started functioning from
-                            Latbagan and after 2011 it shifted to its new address near Barrackpore Municipality. In our
-                            institute we basically offer private coaching session to students for Foundation course
-                            (Class I to Class XII) as well as Engineering course (Class XI to Class XII) also. We
-                            prepare students in a scientific way for different examinations of Schools, Institutes &
-                            Boards (West Bengal, CBSE, ICSE).
-                            BRSSI wished to impart holistic education to the knowledge hungry brains of India for their
-                            academic excellence. We continually respond to the upcoming changes in the field of
-                            education and incorporate them to the best of our abilities. We strive to reach out to
-                            perfection through a diligent academic pursuit for excellence. We further envision ourselves
-                            as a valued and honored institute engaged in equipping students with knowledge and helping
-                            them realize their potentialities.
-                        </p>
-                        <div class="ui container right aligned">
-                            <div class="ui button primary mini">Read More ></div>
-                        </div>
-                    </div>
-
+<br/>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="panel panel-default" style="background-color:#BBDEFB;">
+                <div class="panel-body">
+                    <img src="{% static 'img/study_material.png'%}" class="img-responsive center-block" />
+                    <h3 class="text-center">Study Material</h3>
+                    <p>
+                        Covering each and every intricate concept along with proper illustrations. Classroom Discussion Problem, On-line Tests and Home Assignments.
+                    </p>
                 </div>
-
-                <div class="ui container">
-                    <div class="testimonial">
-                        {% for t in testimonials %}
-                            <div>
-                                <img src="https://ssl.gstatic.com/accounts/ui/avatar_2x.png"
-                                     class="ui small left floated circular inline image"/> <i
-                                    class="fa fa-quote-left fa-2x" style="color: #CCCCCC"></i> {{ t.content }} -
-                                <small>{{ t.name }}</small>
-                            </div>
-                        {% endfor %}
-                    </div>
-                </div>
-
-
             </div>
-            <div class="six wide column">
-                <div class="ui top attached blue header small board-heading">
-                    <div class="ui header inverted white small">Notice Board</div>
-                </div>
-                <div class="ui attached segment">
-                    <marquee class="description" direction="up" onmouseover="this.stop();"
-                             onmouseout="this.start();" style="min-height:200px">
-                        {% for notice in notices %}
-                            {{ notice.content | safe }}
-                            {% if not forloop.last %}
-                                <br/>
-                                <br/>
-                            {% endif %}
-                        {% endfor %}
-                    </marquee>
-                </div>
+        </div>
 
-                <div class="ui container segment" style="padding: 0px; border-bottom: 0px">
-                    <div class="video-slider">
-                        <div class="vslider-item">
-                        <iframe height="300px" width="100%" src="https://www.youtube.com/embed/jHQGyMBtE9Y?rel=0&amp;wmode=opaque"
-                                frameborder="0"
-                                allowfullscreen></iframe></div>
-                        <div class="vslider-item">
-                            <iframe height="300px" width="100%" src="https://www.youtube.com/embed/c6rP-YP4c5I"
-                                    frameborder="0"
-                                    allowfullscreen></iframe></div>
-                        <div class="vslider-item">
-                            <iframe height="300px" width="100%" src="https://www.youtube.com/embed/c6rP-YP4c5I"
-                                    frameborder="0"
-                                    allowfullscreen></iframe></div>
-                    </div>
+        <div class="col-sm-4">
+            <div class="panel panel-default" style="background-color:#B2DFDB;">
+                <div class="panel-body">
+                    <img src="{% static 'img/hourglass.png'%}" class="img-responsive center-block" />
+                    <h3 class="text-center">24 x 7 Doubt Clearing</h3>
+                    <p>
+                        The main objective of doubt clearing class/session is to provide additional attention and support (by BRSSI) to the students. It generally helps those students who couldn't understand a concept at the beginning. It is a One to One Discussion Forum between
+                        the student and the teacher.
+                    </p>
                 </div>
-
-                <div class="ui segment">
-                    <div id="map"></div>
-                </div>
-
-                <h3 class="ui top attached header blue small board-heading">
-                    <div class="ui header inverted white small">Poll</div>
-                </h3>
-                <div class="ui attached segment">
-                    <div class="description">
-
-                    </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="panel panel-default" style="background-color:#FFCDD2;">
+                <div class="panel-body">
+                    <img src="{% static 'img/stats.png'%}" class="img-responsive center-block" />
+                    <h3 class="text-center">Performance Analysis</h3>
+                    <p>
+                        The academic performance of a student is analyzed and studied at Micro level (i.e. subject wise, topic wise and question wise) and special academic initiatives are taken to improve the performance
+                    </p>
                 </div>
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <h2>About Us</h2>
+            <p>
+                <br/> Barrackpore R.S Success Institute (BRSSI) came into existence in the year 2010 on 20th March. This institute was founded by SMT. RINA SAHA. At first it started functioning from Latbagan and after 2011 it shifted to its new address
+                near Barrackpore Municipality. In our institute we basically offer private coaching session to students for Foundation course (Class I to Class XII) as well as Engineering course (Class XI to Class XII) also. We prepare students in a scientific
+                way for different examinations of Schools, Institutes &amp; Boards (West Bengal, CBSE, ICSE). BRSSI wished to impart holistic education to the knowledge hungry brains of India for their academic excellence. We continually respond to the
+                upcoming changes in the field of education and incorporate them to the best of our abilities. We strive to reach out to perfection through a diligent academic pursuit for excellence. We further envision ourselves as a valued and honored
+                institute engaged in equipping students with knowledge and helping them realize their potentialities.
+            </p>
+            <div class="text-right">
+                <div class="btn btn-primary">Read More ></div>
+            </div>
+        </div>
+        <div class=" col-sm-6 ">
+            <div class="testimonial">
+                {% for t in testimonials %}
+                <div class="center-block">
+                    {% if not t.image %}
+                        <img width="100px" src="{% if forloop.counter|divisibleby:2 %}{% static 'img/avatar_m.png' %}{% else %}{% static 'img/avatar_f.png' %}{%  endif %}" class="pull-left img-circle" style="margin-right:15px;"/>
+                    {% else %}
+                      <img src="{{t.image.url}}" class="pull-left img-circle" style="margin-right:15px;"/>
+                    {% endif %}
+                      <p>
+                     <i class="fa fa-quote-left fa-2x" style="color: #CCCCCC"></i> {{ t.content }} -
+                    <small>{{ t.name }}</small>
+                  </p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-sm-6">
+
+            <div class="heading">Notice Board</div>
+
+
+            <marquee class="description" direction="up" onmouseover="this.stop();" onmouseout="this.start();" style="min-height:200px">
+                {% for notice in notices %} {{ notice.content | safe }} {% if not forloop.last %}
+                <br/>
+                <br/> {% endif %} {% endfor %}
+            </marquee>
+
+        </div>
+
+        <div class="col-sm-6 col-sm-offset-3">
+            <div class="video-slider">
+                <div class="vslider-item">
+                    <iframe height="300px" width="100%" src="https://www.youtube.com/embed/jHQGyMBtE9Y?rel=0&amp;wmode=opaque" frameborder="0" allowfullscreen></iframe></div>
+            </div>
+        </div>
+
+        <div class="col-sm-6">
+            <div id="map"></div>
+        </div>
+    </div>
+</div>
+</div>
 {% endblock %}

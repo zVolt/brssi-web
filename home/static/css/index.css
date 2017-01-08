@@ -14,17 +14,12 @@
   background: url("../img/banner4.jpg") no-repeat center center; }
 
 .testimonial {
-  font-family: 'Product Sans', Arial, sans-serif !important;
+  font-family: 'Caveat', cursive;
+  font-size: 2em;
   line-height: 140%; }
   .testimonial small {
     font-size: 1em;
     color: #aaa; }
-  .testimonial .image {
-    width: 96px !important;
-    height: 96px !important; }
-
-.board-heading {
-  padding: 5px !important; }
 
 #map {
   height: 300px;
