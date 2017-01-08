@@ -1,3 +1,12 @@
-
+.footer {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #425761;
+  margin-top: 40px;
+  color: #95acb7; }
+  .footer .btn :hover, .footer .btn :active {
+    color: inherit; }
+  .footer a :hover, .footer a :active, .footer a :hover :active, .footer a :visited, .footer a :visited :hover {
+    color: #263238; }
 
 /*# sourceMappingURL=main.css.map */

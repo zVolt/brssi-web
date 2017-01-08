@@ -1,34 +1,66 @@
 .slide-item {
-  padding: 150px 20px 150px 20px;
-  color: black;
-  align-content: center;
-  text-align: center;
+    padding: 120px 20px;
+    color: black;
+    align-content: center;
+    text-align: center;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: 'Courgette', cursive;
+        font-size: 3.5em;
+
+    }
+    p{
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.5em;
+      font-weight: 300;
+    }
+
 }
 
 .slide-1 {
-  background: url("../img/banner1.jpg") no-repeat center center;
+  background-color: #4DD0E1;
+  .slide-item{
 
-}
-
-.slide-2 {
-  background: url("../img/banner3.jpg") no-repeat center center;
-}
-
-.slide-3 {
-  background: url("../img/banner4.jpg") no-repeat center center;
-}
-
-.testimonial {
-  font-family: 'Indie Flower', cursive;
-  font-size: 2em;
-  line-height: 140%;
-  small {
-    font-size: 1em;
-    color: #aaa;
+    // background: url("../img/banner1.jpg") no-repeat fill center;
+    color: #3F5D61;
+    // transition: background-color 0.2s linear;
   }
 }
 
+.slide-2 {
+    background-color: #FFB74D;
+    .slide-item{
+    // background: url("../img/banner3.jpg") no-repeat fill center;
+    color: #7F6B4D;
+    // transition: background-color 0.2s linear;
+  }
+}
+
+.slide-3 {
+    background-color: #AED581;
+    .slide-item{
+    // background: url("../img/banner4.jpg") no-repeat fill center;
+    color: #3A551A;
+    // transition: background-color 0.2s linear;
+  }
+}
+
+.testimonial {
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.2em;
+    line-height: 140%;
+    small {
+        font-size: 1em;
+        color: #aaa;
+    }
+}
+
 #map {
-  height: 300px;
-  width: 100%;
+    height: 300px;
+    width: 100%;
 }

@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {% load static %} {% block head %}
+<link href="https://fonts.googleapis.com/css?family=Courgette" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="{% static 'components/slick-carousel/slick/slick.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'components/slick-carousel/slick/slick-theme.css' %}" />
 <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}"> {% endblock %} {% block script %}
@@ -14,6 +15,23 @@
             autoplay: true,
             autoplaySpeed: 2000,
         });
+        $('.slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+  if(nextSlide==0){
+    $('.slider').addClass('slide-1');
+    $('.slider').removeClass('slide-2');
+    $('.slider').removeClass('slide-3');
+  }
+  else if(nextSlide==1){
+    $('.slider').removeClass('slide-1');
+    $('.slider').addClass('slide-2');
+    $('.slider').removeClass('slide-3');
+  }
+  else{
+    $('.slider').removeClass('slide-1');
+    $('.slider').removeClass('slide-2');
+    $('.slider').addClass('slide-3');
+  }
+});
         $('.testimonial').slick({
             infinite: true,
             autoplay: true,
@@ -29,6 +47,7 @@
             slidesToShow: 1,
             slidesToScroll: 1,
         });
+
 
     });
 
@@ -47,40 +66,49 @@
         });
     }
 </script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoi1Y4mrLLKnuouFCnzVICbo5dRUtVPSs&callback=initMap">
+<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoi1Y4mrLLKnuouFCnzVICbo5dRUtVPSs&callback=initMap"> -->
 </script>
 {% endblock %} {% block body %}
 
-<div class="slider">
+<div class="slider slide-1">
+    <div class="slide-item first">
+        <div class="container text-center">
+            <div class="col-md-6">
+                <h1>Let’s Grow together</h1>
+                <p>dgdfg</p>
+            </div>
+            <div class="col-lg-6"><img class="img-responsive" data-lazy="{% static 'img/banner1.jpg' %}" /></div>
+        </div>
 
-    <div class="slide-item slide-1">
-        <div class="content">
-            <h3 class="ui huge inverted white header">Let’s Grow together</h3>
-            <p>dgdfg</p>
-        </div>
-        {# <img data-lazy="{% static 'img/banner1.jpg' %}" />#}
     </div>
-    <div class="slide-item slide-2">
-        <div class="content">
-            <h3 class="ui huge inverted white header">Proper Guidance, Technology and Fun makes learning more
-                    FAST</h3>
-            <p class="">Our mission / goal is to become a nurturing ground for every student’s educational development, which will further make a remarkable change in the society.</p>
+    <div class="slide-item second">
+        <div class="container">
+            <div class="col-md-6 text-center">
+                <h1>Proper Guidance, Technology and Fun makes learning more
+                    FAST</h1>
+                <p>Our mission / goal is to become a nurturing ground for every student’s educational development, which will further make a remarkable change in the society.</p>
+            </div>
+            <div class="col-lg-6"><img class="img-responsive" data-lazy="{% static 'img/banner3.jpg' %}" /></div>
         </div>
-        {# <img data-lazy="{% static 'img/banner3.jpg' %}" />#}
+
     </div>
-    <div class="slide-item slide-3">
-        <div class="content">
-            <h3 class="ui huge inverted white header">Be different to be the best</h3>
-            <p>Mutual respect, trust &amp; honesty are the three pillars of our institute and we are thoroughly committed to them</p>
+
+    <div class="slide-item third">
+        <div class="container text-center">
+            <div class="col-md-6">
+                <h1>Be different to be the best</h1>
+                <p>Mutual respect, trust &amp; honesty are the three pillars of our institute and we are thoroughly committed to them</p>
+            </div>
+            <div class="col-lg-6"><img class="img-responsive" data-lazy="{% static 'img/banner4.jpg' %}" /></div>
         </div>
-        {# <img data-lazy="{% static 'img/banner4.jpg' %}" />#}
+
     </div>
 </div>
 
 <br/>
 <div class="container">
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-md-4">
             <div class="panel panel-default" style="background-color:#BBDEFB;">
                 <div class="panel-body">
                     <img src="{% static 'img/study_material.png'%}" class="img-responsive center-block" />
@@ -92,7 +120,7 @@
             </div>
         </div>
 
-        <div class="col-sm-4">
+        <div class="col-md-4">
             <div class="panel panel-default" style="background-color:#B2DFDB;">
                 <div class="panel-body">
                     <img src="{% static 'img/hourglass.png'%}" class="img-responsive center-block" />
@@ -104,7 +132,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-md-4">
             <div class="panel panel-default" style="background-color:#FFCDD2;">
                 <div class="panel-body">
                     <img src="{% static 'img/stats.png'%}" class="img-responsive center-block" />
@@ -117,7 +145,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-sm-6">
+        <div class="col-md-8">
             <h2>About Us</h2>
             <p>
                 <br/> Barrackpore R.S Success Institute (BRSSI) came into existence in the year 2010 on 20th March. This institute was founded by SMT. RINA SAHA. At first it started functioning from Latbagan and after 2011 it shifted to its new address
@@ -130,51 +158,49 @@
                 <div class="btn btn-primary">Read More ></div>
             </div>
         </div>
-        <div class=" col-sm-6 ">
-            <div class="testimonial">
-                {% for t in testimonials %}
-                <div class="center-block">
-                    {% if not t.image %}
-                        <img width="100px" src="{% if forloop.counter|divisibleby:2 %}{% static 'img/avatar_m.png' %}{% else %}{% static 'img/avatar_f.png' %}{%  endif %}" class="pull-left img-circle" style="margin-right:15px;"/>
-                    {% else %}
-                      <img src="{{t.image.url}}" class="pull-left img-circle" style="margin-right:15px;"/>
-                    {% endif %}
-                      <p>
-                     <i class="fa fa-quote-left fa-2x" style="color: #CCCCCC"></i> {{ t.content }} -
-                    <small>{{ t.name }}</small>
-                  </p>
+        <div class=" col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h3>Notice Board</h3>
+                    <marquee class="description" direction="up" onmouseover="this.stop();" onmouseout="this.start();" style="min-height:200px">
+                        {% for notice in notices %} {{ notice.content | safe }} {% if not forloop.last %}
+                        <br/>
+                        <br/> {% endif %} {% endfor %}
+                    </marquee>
                 </div>
-                {% endfor %}
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body testimonial">
+                    {% for t in testimonials %}
+                    <div class="center-block">
+                        {% if not t.image %}
+                        <img width="100px" src="{% if forloop.counter|divisibleby:2 %}{% static 'img/avatar_m.png' %}{% else %}{% static 'img/avatar_f.png' %}{%  endif %}" class="pull-left img-circle" style="margin-right:15px;" /> {% else %}
+                        <img src="{{t.image.url}}" class="pull-left img-circle" style="margin-right:15px;" /> {% endif %}
+                        <p>
+                            <i class="fa fa-quote-left fa-2x" style="color: #CCCCCC"></i> {{ t.content }} -
+                            <small>{{ t.name }}</small>
+                        </p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="video-slider">
+                        <div class="vslider-item" style="height:150px; background-color:#ccc">
+                            <!-- <iframe height="300px" width="100%" src="https://www.youtube.com/embed/jHQGyMBtE9Y?rel=0&amp;wmode=opaque" frameborder="0" allowfullscreen></iframe></div> -->
+                        </div>
+                        <div class="vslider-item" style="height:150px; background-color:#ccc"></div>
+                        <div class="vslider-item" style="height:150px; background-color:#ccc"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div id="map" style="height:250px; background-color:#ccc"></div>
+                </div>
             </div>
         </div>
     </div>
-
-    <div class="row">
-
-        <div class="col-sm-6">
-
-            <div class="heading">Notice Board</div>
-
-
-            <marquee class="description" direction="up" onmouseover="this.stop();" onmouseout="this.start();" style="min-height:200px">
-                {% for notice in notices %} {{ notice.content | safe }} {% if not forloop.last %}
-                <br/>
-                <br/> {% endif %} {% endfor %}
-            </marquee>
-
-        </div>
-
-        <div class="col-sm-6 col-sm-offset-3">
-            <div class="video-slider">
-                <div class="vslider-item">
-                    <iframe height="300px" width="100%" src="https://www.youtube.com/embed/jHQGyMBtE9Y?rel=0&amp;wmode=opaque" frameborder="0" allowfullscreen></iframe></div>
-            </div>
-        </div>
-
-        <div class="col-sm-6">
-            <div id="map"></div>
-        </div>
-    </div>
-</div>
 </div>
 {% endblock %}
