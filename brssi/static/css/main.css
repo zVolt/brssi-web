@@ -1,12 +1,16 @@
-.dropdown .dropdown-menu li:not(.divider) {
-  padding-top: 5px;
-  padding-bottom: 5px; }
+.footer {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #425761;
+  margin-top: 40px;
+  color: #95acb7; }
+  .footer .btn :hover, .footer .btn :active {
+    color: inherit; }
+  .footer a :hover, .footer a :active, .footer a :hover :active, .footer a :visited, .footer a :visited :hover {
+    color: #263238; }
 
-.navbar-transparent {
-  background: transparent;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  transition: 500ms; }
+#body_pusher {
+  padding-top: 100px; }
 
 .footer {
   padding-top: 30px;

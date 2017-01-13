@@ -35,10 +35,9 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'components/bootstrap/dist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/theme.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'components/font-awesome/css/font-awesome.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Ubuntu+Mono" rel="stylesheet"> {% block head %} {% endblock %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}"> {% block head %} {% endblock %}
 </head>
 
 <body>
@@ -48,11 +47,12 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
                 <a class="navbar-brand" href="#">Barrackpore R.S Success Institute</a>
             </div>
 
@@ -81,7 +81,7 @@
                     <li><a href="#">Contact</a></li>
                     <li><a href="#">Gallery</a></li>
                     <li>
-                        <a href="#" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#loginModal"><img class="login-icon" src="{% static '/img/login-icon.png' %}" /></a>
+                        <a href="#"><img class="login-icon" src="{% static '/img/login-icon.png' %}" /></a>
                     </li>
                 </ul>
             </div>
@@ -90,54 +90,36 @@
         <!-- /.container-fluid -->
     </nav>
 
+    <div id="body_pusher">
     {% block body %} {% endblock %}
-
-    <div class="container-fluid footer">
+    </div>
+    <div class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6">
+                <div class="pull-left">
+                    <img src="{% static 'img/brssi.png' %}" class="img-respinsive center-block" width="100px" />
                     <h4>Barrackpore R.S Success Institute</h4>
                     <p>&copy; Copyright BRSSI 2016</p>
-                    <a href="/disclaimer">Disclaimer</a> {% block footer %} {% endblock %}
+                    <a href="/disclaimer">Disclaimer</a>
                 </div>
-                <div class="col-sm-6">
-                    <div class="text-right">
-                        <a class="btn btn-facebook" href="https://www.facebook.com/brssi.edu"><i class="fa fa-facebook fa-lg"></i></a>
-                        <a class="btn btn-google" href="https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=12&cad=rja&uact=8&ved=0CEYQFjAL&url=https%3A%2F%2Fplus.google.com%2F101515951650803480714&ei=mrryVO3SPIqGuATp3YGQBA&usg=AFQjCNGqIp97NiAYSW02woiucXmBnI9QiQ&bvm=bv.87269000,d.c2E"><i class="fa fa-google fa-lg"></i></a>
-                        <a class="btn btn-linkedin" href="http://in.linkedin.com/in/brssi"><i class="fa fa-linkedin fa-lg"></i></a>
-                        <div class="statcounter">
-                            <a title="web statistics" href="http://statcounter.com/" target="_blank"> Visitors count:
-                        <img class="statcounter" src="//c.statcounter.com/10318076/0/b5e297ef/0/"
-                             alt="webstatistics"/></a>
-                        </div>
-                        <p> Developed and Maintained by Coders</p>
-                    </div>
+                <div class="pull-right">
+
+                    <a class="btn" href="https://www.facebook.com/brssi.edu"><i class="fa fa-facebook fa-lg"></i></a>
+                    <a class="btn" href="https://www.google.co.in/url?sa=t&rct=j&q=&esrc=s&source=web&cd=12&cad=rja&uact=8&ved=0CEYQFjAL&url=https%3A%2F%2Fplus.google.com%2F101515951650803480714&ei=mrryVO3SPIqGuATp3YGQBA&usg=AFQjCNGqIp97NiAYSW02woiucXmBnI9QiQ&bvm=bv.87269000,d.c2E">
+                        <i class="fa fa-google fa-lg"></i></a>
+                    <a class="btn btn-sm" href="http://in.linkedin.com/in/brssi"><i class="fa fa-linkedin fa-lg"></i></a>
+                    <div class="statcounter">
+                        <a title="web statistics" href="http://statcounter.com/" target="_blank"> Visitors count:
+                                <img class="statcounter" src="//c.statcounter.com/10318076/0/b5e297ef/0/"
+                                     alt="webstatistics"/></a>
+                    </div><br/>
+                    <p>Developed and Maintained by Coders</p>
                 </div>
             </div>
         </div>
     </div>
-
-    <!--Models used in base-->
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="Login">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="myModalLabel">Login</h4>
-        </div>
-        <div class="modal-body">
-          
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-    <!--Models used in base end-->
-
     <script type="text/javascript" src="{% static 'components/jquery/dist/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'components/tether/dist/js/tether.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -149,11 +131,11 @@
         });
         $(window).scroll(function() {
             if (($(window).scrollTop()) <= 150) {
-                $('#primary_navbar').addClass('navbar-transparent');
-                $('#primary_navbar').addClass('navbar-inverse');
-            } else {
-                $('#primary_navbar').removeClass('navbar-transparent');
+                $('#primary_navbar').addClass('navbar-default');
                 $('#primary_navbar').removeClass('navbar-inverse');
+            } else {
+                $('#primary_navbar').addClass('navbar-inverse');
+                $('#primary_navbar').removeClass('navbar-default');
             }
         });
     </script>

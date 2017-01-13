@@ -1,87 +1,28 @@
-$gray-base: #000;
-$gray-darker: lighten($gray-base, 13.5%); // #222
-$gray-dark: #7b8a8b; // #333
-$gray: #95a5a6; // #555
-$gray-light: #b4bcc2; // #999
-$gray-lighter: #ecf0f1; // #eee
-$brand-primary: #2C3E50;
-$brand-success: #18BC9C;
-$brand-info: #3498DB;
-$brand-warning: #F39C12;
-$brand-danger: #E74C3C; //== Scaffolding
-//
-//## Settings for some of the most global styles.
-//** Background color for `<body>`.
-$body-bg: #fff; //** Global text color on `<body>`.
-$text-color: $brand-primary; //** Global textual link color.
-$link-color: $brand-success; //** Link hover color set via `darken()` function.
-$link-hover-color: $link-color; //** Link hover decoration.
-$link-hover-decoration: underline; //== Typography
-//
-//## Font, line-height, and color for body text, headings, and more.
-$font-family-sans-serif: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$font-family-serif: Georgia, "Times New Roman", Times, serif; //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
-$font-family-monospace: Menlo, Monaco, Consolas, "Courier New", monospace;
-$font-family-base: $font-family-sans-serif;
-$font-size-base: 15px;
-$font-size-large: ceil(($font-size-base * 1.25)); // ~18px
-$font-size-small: ceil(($font-size-base * 0.85)); // ~12px
-$font-size-h1: floor(($font-size-base * 2.6)); // ~36px
-$font-size-h2: floor(($font-size-base * 2.15)); // ~30px
-$font-size-h3: ceil(($font-size-base * 1.7)); // ~24px
-$font-size-h4: ceil(($font-size-base * 1.25)); // ~18px
-$font-size-h5: $font-size-base;
-$font-size-h6: ceil(($font-size-base * 0.85)); // ~12px
-//** Unit-less `line-height` for use in components like buttons.
-$line-height-base: 1.428571429; // 20/14
-//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
-$line-height-computed: floor(($font-size-base * $line-height-base)); // ~20px
-//** By default, this inherits from the `<body>`.
-$headings-font-family: $font-family-base;
-$headings-font-weight: 400;
-$headings-line-height: 1.1;
-$headings-color: inherit;
-.dropdown {
-    .dropdown-menu {
-        li:not(.divider) {
-            padding-top: 5px;
-            padding-bottom: 5px;
-        }
+$gray-base: #263238;
+$gray-darker: lighten($gray-base, 13.5%);
+$gray-dark: lighten($gray-base, 20%);
+$gray: lighten($gray-base, 33.5%);
+$gray-light: lighten($gray-base, 46.7%);
+$gray-lighter: lighten($gray-base, 93.5%);
+
+.footer{
+  padding-top:50px;
+  padding-bottom:50px;
+  background-color:$gray-darker;
+  margin-top:40px;
+  color:$gray-light;
+  .btn{
+    :hover,:active{
+      color:inherit;
     }
+  }
+  a{
+    :hover,:active,:hover :active,:visited,:visited :hover{
+      color:$gray-base;
+    }
+  };
 }
-.navbar-transparent {
-    background: transparent;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    transition: 500ms;
-}
-.footer {
-    p {
-        font-size: ceil($font-size-base);
-    }
-    padding-top: 30px;
-    padding-bottom: 30px;
-    background: $brand-primary;
-    color: $body-bg;
-    font-weight: normal;
-    font-family: 'Ubuntu Mono', monospace;
-    h1,
-    h2,
-    h3,
-    h5,
-    h6 {
-        font-family: 'Comfortaa', cursive;
-    }
-    h4 {
-        font-family: 'Comfortaa', cursive;
-        font-size: ceil($font-size-h4 * 0.8);
-    }
-    a {
-        color: $body-bg;
-        text-decoration: none;
-        :hover {
-            text-decoration: none;
-            color: darken($body-bg,30%);
-        }
-    }
+
+#body_pusher{
+  padding-top:100px;
 }
