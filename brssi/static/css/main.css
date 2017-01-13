@@ -9,4 +9,7 @@
   .footer a :hover, .footer a :active, .footer a :hover :active, .footer a :visited, .footer a :visited :hover {
     color: #263238; }
 
+#body_pusher {
+  padding-top: 100px; }
+
 /*# sourceMappingURL=main.css.map */

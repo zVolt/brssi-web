@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from . models import Notice, Testimonial
-
+from .models import Notice, Testimonial
+from .forms import LoginForm
 
 def index(request):
     data=dict()
@@ -10,5 +10,13 @@ def index(request):
 
 
 def disclaimer(request):
-    print 'disclaimer'
     return render(request,'home/disclaimer.html')
+
+def login(request):
+    data=dict()
+    if request.method=='GET':
+        data['login_form']=LoginForm()
+        return render(request,'home/login.html',data)
+    elif request.method=='POST':
+        data['login_form']=LoginForm()
+        return render(request,'home/login.html',data)

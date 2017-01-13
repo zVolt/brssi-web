@@ -1,0 +1,81 @@
+{% extends 'base.html' %} {% load static %} {% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"> {% endblock %} {% block script %}
+<script>
+    var std_form=true;
+    $(document).ready(function() {
+        $('#login_faculty').hide();
+        $('#student_form_curtain').hide();
+        $('#toggle_btn').on('click', function(event) {
+            std_form=!std_form;
+            console.log(std_form);
+            $('#student_form_curtain').show();
+            $('#faculty_form_curtain').show();
+            if(std_form){
+              $('#login_faculty').hide();
+              $('#login_student').show();
+              $('#login_student').toggleClass('animate').delay(2000).queue(function() {
+                  $('#student_form_curtain').hide();
+                  $(this).removeClass('animate');
+              });
+            }
+            else{
+              $('#login_student').hide();
+              $('#login_faculty').show();
+              $('#login_faculty').toggleClass('animate').delay(2000).queue(function() {
+                  $('#faculty_form_curtain').hide();
+                  $(this).removeClass('animate');
+              });
+            }
+            event.preventDefault();
+        });
+    });
+</script>
+{% endblock %} {% block body %}
+<div class="container">
+    <div class="row">
+        <div class="btn btn-default" id="toggle_btn">Student</div>
+
+    </div>
+    <div class="col-sm-10 col-md-8 col-md-offset-2" id="login_student">
+        <div id="student_form_curtain" style="position:absolute;background-color:white;width:100%;height:100%;"></div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h2>Student</h2>
+                <form action="/login/student/" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="id_email">Email:</label>
+                        <input id="id_email" name="email" type="email" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="id_password">Password:</label>
+                        <input id="id_password" maxlength="100" name="password" type="password" class="form-control" required />
+                    </div>
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-10 col-md-8 col-md-offset-2" id="login_faculty">
+        <div id="faculty_form_curtain" style="position:absolute;background-color:white;width:100%;height:100%;"></div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h2>Faculty</h2>
+                <form action="/login/faculty/" method="post">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="id_email">Email:</label>
+                        <input id="id_email" name="email" type="email" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="id_password">Password:</label>
+                        <input id="id_password" maxlength="100" name="password" type="password" class="form-control" required />
+                    </div>
+                    <input type="submit" value="Submit" class="btn btn-primary" />
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

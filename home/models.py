@@ -83,3 +83,17 @@ class Testimonial(models.Model):
     # image=models.ImageField()
     def __str__(self):
         return self.content
+
+
+class Test(models.Model):
+    test_code=models.CharField(max_length=100)
+    subject=models.ForeignKey(Subject)
+    total_marks=models.CharField(max_length=50)
+
+
+class TestAttempt(models.Model):
+    student=models.ForeignKey(Student)
+    faculty=models.ForeignKey(Faculty)
+    date_of_examination=models.DateField(auto_now=True)
+    markes_obtained=models.CharField(max_length=50)
+    remarks=models.CharField(max_length=100)
