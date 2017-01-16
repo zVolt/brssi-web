@@ -1,40 +1,57 @@
 {% extends 'base.html' %} {% load static %}
+{% block head %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/student.css' %}">
+ {% endblock %}
 {% block body %}
 <div class="container">
-  <div class="col-sm-6 col-md-4 btn">
-    <div class="panel panel-default">
-      <div class="panel-body">
-        <h3><i class="fa fa-vcard"></i> Profile</h3>
-          <p>Keep your profile up-to-date</p>
-      </div>
+  <div class="row">
+    <h2>Welcome {{request.user.username}}</h2>
+    <hr/>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+            <div class="panel panel-default">
+              <a href="profile/">
+                <div class="panel-body text-center">
+                    <h3><i class="fa fa-vcard"></i> Profile</h3>
+                    <p>Keep your profile up-to-date</p>
+                </div>
+              </a>
+            </div>
 
     </div>
-  </div>
-  <div class="col-sm-6 col-md-4 btn">
-    <div class="btn panel panel-default">
-      <div class="panel-body">
-        <h3><i class="fa fa-book"></i> Study Material</h3>
-        <p>Keep your profile up-to-date</p>
-      </div>
+    <div class="col-sm-6 col-md-4">
+        <a href="study-material/">
+            <div class="panel panel-default">
+                <div class="panel-body text-center">
+                    <h3><i class="fa fa-book"></i> Study Material</h3>
+                    <p>Study material uploaded by faculty members</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="col-sm-6 col-md-4">
+        <a href="scholarship/">
+            <div class="panel panel-default">
+                <div class="panel-body text-center">
+                    <h3><i class="fa fa-graduation-cap"></i> Scholarship</h3>
+                    <p>Apply for scholarship</p>
+                </div>
+            </div>
+        </a>
     </div>
   </div>
-  <div class="col-sm-6 col-md-4 btn">
-    <div class="btn panel panel-default">
-      <div class="panel-body">
-        <h3><i class="fa fa-graduation-cap"></i> Scholarship</h3>
-        <p>Keep your profile up-to-date</p>
-      </div>
+  <div class="row">
+    <div class="col-sm-6 col-md-4">
+        <a href="result/">
+            <div class="panel panel-default">
+                <div class="panel-body text-center">
+                    <h3><i class="fa fa-clipboard"></i> Test results</h3>
+                    <p>get feedback on your test result.</p>
+                </div>
+            </div>
+        </a>
     </div>
-  </div>
-  <div class="col-sm-6 col-md-4">
-    <a href="#">
-    <div class=" panel panel-default">
-      <div class="panel-body">
-        <h3><i class="fa fa-clipboard"></i> Test results</h3>
-        <p>Keep your profile up-to-date</p>
-      </div>
-    </div>
-  </a>
   </div>
 </div>
 {% endblock %}

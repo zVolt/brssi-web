@@ -60,6 +60,36 @@ def student(request):
     data=dict()
     return render(request,'home/student.html',data)
 
+
+@login_required
+@user_passes_test(is_student)
+def student_profile(request):
+    data=dict()
+    return render(request,'home/student_profile.html',data)
+
+
+@login_required
+@user_passes_test(is_student)
+def student_material(request):
+    data=dict()
+    return render(request,'home/student_material.html',data)
+
+
+@login_required
+@user_passes_test(is_student)
+def student_scholarship(request):
+    data=dict()
+    return render(request,'home/student_scholarship.html',data)
+
+
+@login_required
+@user_passes_test(is_student)
+def student_result(request):
+    data=dict()
+    data['attempts']=''
+    return render(request,'home/student_result.html',data)
+
+
 @login_required
 @user_passes_test(is_faculty)
 def faculty(request):
