@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
-
+from django.contrib.auth.models import User
 
 class Notice(models.Model):
     content=models.TextField()
@@ -51,6 +51,7 @@ class Student(models.Model):
         ('11','XI'),
         ('12','XII'),
     )
+    user=models.OneToOneField(User, on_delete=models.CASCADE)
     name=models.CharField(max_length=100)
     mothers_name=models.CharField(max_length=100)
     date_of_birth=models.DateField()
@@ -67,6 +68,7 @@ class Student(models.Model):
 
 
 class Faculty(models.Model):
+    user=models.OneToOneField(User, on_delete=models.CASCADE)
     name=models.CharField(max_length=100)
     address=models.TextField()
     contact_number=models.CharField(max_length=13)
