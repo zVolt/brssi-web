@@ -26,3 +26,10 @@ $gray-lighter: lighten($gray-base, 93.5%);
 #body_pusher{
   padding-top:100px;
 }
+.navbar-inverse{
+  transition: 0.3s linear;
+}
+.navbar-default{
+  padding:15px;
+  transition: 0.3s linear;
+}

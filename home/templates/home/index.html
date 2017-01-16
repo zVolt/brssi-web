@@ -15,23 +15,21 @@
             autoplay: true,
             autoplaySpeed: 2000,
         });
-        $('.slider').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-  if(nextSlide==0){
-    $('.slider').addClass('slide-1');
-    $('.slider').removeClass('slide-2');
-    $('.slider').removeClass('slide-3');
-  }
-  else if(nextSlide==1){
-    $('.slider').removeClass('slide-1');
-    $('.slider').addClass('slide-2');
-    $('.slider').removeClass('slide-3');
-  }
-  else{
-    $('.slider').removeClass('slide-1');
-    $('.slider').removeClass('slide-2');
-    $('.slider').addClass('slide-3');
-  }
-});
+        $('.slider').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+            if (nextSlide == 0) {
+                $('.slider').addClass('slide-1');
+                $('.slider').removeClass('slide-2');
+                $('.slider').removeClass('slide-3');
+            } else if (nextSlide == 1) {
+                $('.slider').removeClass('slide-1');
+                $('.slider').addClass('slide-2');
+                $('.slider').removeClass('slide-3');
+            } else {
+                $('.slider').removeClass('slide-1');
+                $('.slider').removeClass('slide-2');
+                $('.slider').addClass('slide-3');
+            }
+        });
         $('.testimonial').slick({
             infinite: true,
             autoplay: true,
@@ -48,7 +46,8 @@
             slidesToScroll: 1,
         });
 
-
+        $('#primary_navbar').removeClass('navbar-inverse');
+        $('#primary_navbar').addClass('navbar-default');
     });
 
     function initMap() {
@@ -65,27 +64,36 @@
             map: map
         });
     }
+
+    $(window).scroll(function() {
+        if (($(window).scrollTop()) <= 150) {
+            $('#primary_navbar').addClass('navbar-default');
+            $('#primary_navbar').removeClass('navbar-inverse');
+        } else {
+            $('#primary_navbar').removeClass('navbar-default');
+            $('#primary_navbar').addClass('navbar-inverse');
+        }
+    });
 </script>
 <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoi1Y4mrLLKnuouFCnzVICbo5dRUtVPSs&callback=initMap"> -->
 </script>
 {% endblock %} {% block body %}
 
-<div class="slider slide-1">
+<div class="slider slide-1" id="slider-index">
     <div class="slide-item first">
         <div class="container text-center">
             <div class="col-md-6">
                 <h1>Let’s Grow together</h1>
                 <p>dgdfg</p>
             </div>
-            <div class="col-lg-6"><img class="img-responsive" data-lazy="{% static 'img/banner1.jpg' %}" /></div>
+            <div class="col-lg-6"><img class="img-responsive center-block" data-lazy="{% static 'img/banner1.png' %}" /></div>
         </div>
 
     </div>
     <div class="slide-item second">
         <div class="container">
             <div class="col-md-6 text-center">
-                <h1>Proper Guidance, Technology and Fun makes learning more
-                    FAST</h1>
+                <h1>Proper Guidance and Technology</h1>
                 <p>Our mission / goal is to become a nurturing ground for every student’s educational development, which will further make a remarkable change in the society.</p>
             </div>
             <div class="col-lg-6"><img class="img-responsive" data-lazy="{% static 'img/banner3.jpg' %}" /></div>

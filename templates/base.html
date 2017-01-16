@@ -42,7 +42,7 @@
 
 <body>
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-default navbar-fixed-top" id="primary_navbar">
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="primary_navbar">
         <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -59,10 +59,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="#">Admission</a></li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Student's Corner <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Student's Corner</a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Institute Result</a></li>
                             <li><a href="#">Board Result</a></li>
@@ -71,7 +71,7 @@
                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Other Information <span class="caret"></span></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Other Information</a>
                         <ul class="dropdown-menu">
                             <li><a href="#">Rules &amp; Regulation</a></li>
                             <li><a href="#">Fees Structure</a></li>
@@ -81,7 +81,7 @@
                     <li><a href="#">Contact</a></li>
                     <li><a href="#">Gallery</a></li>
                     <li>
-                        <a href="#"><img class="login-icon" src="{% static '/img/login-icon.png' %}" /></a>
+                        <a href="/login/"><img class="login-icon" src="{% static '/img/login-icon.png' %}" /></a>
                     </li>
                 </ul>
             </div>
@@ -119,6 +119,7 @@
         </div>
     </div>
     <script type="text/javascript" src="{% static 'components/jquery/dist/jquery.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'components/jquery-ui/jquery-ui.js' %}"></script>
     <script type="text/javascript" src="{% static 'components/tether/dist/js/tether.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'components/bootstrap/dist/js/bootstrap.min.js' %}"></script>
     <script type="text/javascript">
@@ -129,15 +130,7 @@
                 e.preventDefault();
             });
         });
-        $(window).scroll(function() {
-            if (($(window).scrollTop()) <= 150) {
-                $('#primary_navbar').addClass('navbar-default');
-                $('#primary_navbar').removeClass('navbar-inverse');
-            } else {
-                $('#primary_navbar').addClass('navbar-inverse');
-                $('#primary_navbar').removeClass('navbar-default');
-            }
-        });
+
     </script>
     {% block script %} {% endblock %}
 </body>

@@ -1,1 +1,40 @@
-{% extends 'base.html' %} {% load static %} 
+{% extends 'base.html' %} {% load static %}
+{% block body %}
+<div class="container">
+  <div class="col-sm-6 col-md-4 btn">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h3><i class="fa fa-vcard"></i> Profile</h3>
+          <p>Keep your profile up-to-date</p>
+      </div>
+
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-4 btn">
+    <div class="btn panel panel-default">
+      <div class="panel-body">
+        <h3><i class="fa fa-book"></i> Study Material</h3>
+        <p>Keep your profile up-to-date</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-4 btn">
+    <div class="btn panel panel-default">
+      <div class="panel-body">
+        <h3><i class="fa fa-graduation-cap"></i> Scholarship</h3>
+        <p>Keep your profile up-to-date</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6 col-md-4">
+    <a href="#">
+    <div class=" panel panel-default">
+      <div class="panel-body">
+        <h3><i class="fa fa-clipboard"></i> Test results</h3>
+        <p>Keep your profile up-to-date</p>
+      </div>
+    </div>
+  </a>
+  </div>
+</div>
+{% endblock %}
