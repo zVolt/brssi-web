@@ -14,14 +14,21 @@ class Notice(models.Model):
 class Branch(models.Model):
     name=models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.name
 
 class Board(models.Model):
     name=models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.name
 
 class Subject(models.Model):
     name=models.CharField(max_length=100)
     description=models.TextField()
+
+    def __str__(self):
+        return self.name
 
 
 class Qualification(models.Model):
@@ -31,11 +38,12 @@ class Qualification(models.Model):
     result=models.CharField(max_length=100)
 
 
+
 class Student(models.Model):
     GENDER_CHOICES=(
-        ('Male','male'),
-        ('Female','female'),
-        ('Other','other')
+        ('male','Male'),
+        ('female','Female'),
+        ('other','Other')
     )
     CLASS_CHOICES=(
         ('1','I'),
@@ -66,6 +74,9 @@ class Student(models.Model):
     preferred_branch=models.ForeignKey(Branch)
     joined_on=models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return str(self.name)+'('+str(self.user.username)+')'
+
 
 class Faculty(models.Model):
     user=models.OneToOneField(User, on_delete=models.CASCADE)
@@ -78,13 +89,16 @@ class Faculty(models.Model):
     highest_qualification=models.ForeignKey(Qualification,related_name='highest_qualification')
     joined_on=models.DateTimeField(auto_now=True)
 
+    def __str__(self):
+        return str(self.name)+'('+str(self.user.username)+')'
+
 
 class Testimonial(models.Model):
     content=models.TextField()
     name=models.CharField(max_length=100)
     # image=models.ImageField()
     def __str__(self):
-        return self.content
+        return str(self.content)+'('+str(self.name)+')'
 
 
 class Test(models.Model):
