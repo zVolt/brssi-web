@@ -109,7 +109,8 @@ class Test(models.Model):
 
 class TestAttempt(models.Model):
     student=models.ForeignKey(Student)
+    test=models.ForeignKey(Test)
     faculty=models.ForeignKey(Faculty)
     date_of_examination=models.DateField(auto_now=True)
-    markes_obtained=models.CharField(max_length=50)
+    marks_obtained=models.CharField(max_length=50)
     remarks=models.CharField(max_length=100)

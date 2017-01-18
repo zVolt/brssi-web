@@ -42,3 +42,15 @@ class AdminFaculty(admin.ModelAdmin):
 class AdminTestimonial(admin.ModelAdmin):
     list_display = ('content','name')
     filter_list=('name')
+
+
+@admin.register(Test)
+class AdminTest(admin.ModelAdmin):
+    list_display = ('test_code','subject','total_marks')
+    filter_list=('subject')
+
+
+@admin.register(TestAttempt)
+class AdminTestAttempt(admin.ModelAdmin):
+    list_display = ('student','test','date_of_examination','marks_obtained','remarks')
+    filter_list=('date_of_examination','faculty','student','test')

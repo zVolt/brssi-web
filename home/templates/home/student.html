@@ -1,56 +1,89 @@
 {% extends 'base.html' %} {% load static %} {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/student.css' %}"> {% endblock %} {% block body %}
-<div class="container">
-    <div class="col-sm-4">
-        <div class="container">
-
-                <div class="panel panel-default">
-                    <a href="profile/">
-                        <div class="panel-body text-center">
-                            <h3><i class="fa fa-vcard"></i> Profile</h3>
-                            <p>Keep your profile up-to-date</p>
-                        </div>
+<link rel="stylesheet" type="text/css" href="{% static 'css/student.css' %}">
+{% block student_head %}
+{% endblock %}
+ {% endblock %} {% block body %}
+<div class="container-fluid">
+    <div class="col-xs-3 hidden-sm hidden-md hidden-lg">
+        <div class="container-fluid">
+            <div class="panel panel-default">
+                <div class="panel-body text-center">
+                    <a href="/student/profile/">
+                        <i class="fa fa-vcard fa-lg"></i>
                     </a>
                 </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body text-center">
+                    <a href="/student/study-material/">
+                        <i class="fa fa-book fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body text-center">
+                    <a href="/student/scholarship/">
+                        <i class="fa fa-graduation-cap fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body text-center">
+                    <a href="/student/result/">
+                        <i class="fa fa-clipboard fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4 hidden-xs col-lg-3 col-lg-offset-1">
+        <div class="container">
 
-
-                <a href="study-material/">
-                    <div class="panel panel-default">
-                        <div class="panel-body text-center">
-                            <h3><i class="fa fa-book"></i> Study Material</h3>
-                            <p>Study material uploaded by faculty members</p>
-                        </div>
+            <a href="/student/profile/">
+                <div class="panel panel-default">
+                    <div class="panel-body text-center">
+                        <h3><i class="fa fa-vcard"></i> Profile</h3>
+                        <p>Keep your profile up-to-date</p>
                     </div>
-                </a>
+                </div>
+            </a>
 
-                <a href="scholarship/">
-                    <div class="panel panel-default">
-                        <div class="panel-body text-center">
-                            <h3><i class="fa fa-graduation-cap"></i> Scholarship</h3>
-                            <p>Apply for scholarship</p>
-                        </div>
+            <a href="/student/study-material/">
+                <div class="panel panel-default">
+                    <div class="panel-body text-center">
+                        <h3><i class="fa fa-book"></i> Study Material</h3>
+                        <p>Study material uploaded by faculty members</p>
                     </div>
-                </a>
+                </div>
+            </a>
 
+            <a href="/student/scholarship/">
+                <div class="panel panel-default">
+                    <div class="panel-body text-center">
+                        <h3><i class="fa fa-graduation-cap"></i> Scholarship</h3>
+                        <p>Apply for scholarship</p>
+                    </div>
+                </div>
+            </a>
 
-                <a href="result/">
-                    <div class="panel panel-default">
-                        <div class="panel-body text-center">
+            <a href="/student/result/">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="container text-center">
                             <h3><i class="fa fa-clipboard"></i> Test results</h3>
                             <p>get feedback on your test result.</p>
                         </div>
                     </div>
-                </a>
+                </div>
+            </a>
 
         </div>
     </div>
-    <div class="col-sm-8">
-      <div class="container-fluid">
-        {% block content %}
-          <h2>Welcome {{request.user.username}}</h2>
-          <hr/>
-        {% endblock %}
-      </div>
+    <div class="col-sm-8 col-xs-9 col-lg-7">
+        <div class="container-fluid">
+            <h2>Welcome {{request.user.username}}</h2>
+            <hr/> {% block content %} {% endblock %}
+        </div>
     </div>
 </div>
 {% endblock %}

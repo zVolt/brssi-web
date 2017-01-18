@@ -7,8 +7,8 @@
   2 faculty search along with student search, to approve scholarship from students
   3 approve faculty and student registration
 # student
-  1 list attempts along with result non editable
-  2 self profile editable
+  1 list attempts along with result non editable - done
+  2 self profile editable -done
   3 access shared files, mark as dirty
-  4 button to apply for scholarship once
+  4 button to apply for scholarship once along with form
   4 signup up form for student
