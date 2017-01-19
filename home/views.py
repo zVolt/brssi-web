@@ -3,7 +3,7 @@ from .models import Notice, Testimonial
 from django.contrib.auth import login,authenticate
 from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required,user_passes_test
-from .forms import StudentForm
+from .forms import StudentForm,ScholarshipForm
 from .models import Student,TestAttempt
 
 def is_student(user):
@@ -111,6 +111,18 @@ def student_material(request):
 def student_scholarship(request):
     data=dict()
     return render(request,'home/student_scholarship.html',data)
+
+
+@login_required
+@user_passes_test(is_student)
+def student_scholarship_apply(request):
+    data=dict()
+    try:
+        data['scholarship_form']=ScholarshipForm()
+    except Exception as ex:
+        data['result']=False
+        data['error']=str(ex)
+    return render(request,'home/student_scholarship_apply.html',data)
 
 
 @login_required

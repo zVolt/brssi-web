@@ -114,3 +114,12 @@ class TestAttempt(models.Model):
     date_of_examination=models.DateField(auto_now=True)
     marks_obtained=models.CharField(max_length=50)
     remarks=models.CharField(max_length=100)
+
+
+class Scholarship(models.Model):
+    student=models.ForeignKey(Student)
+    marks_in_board_exam=models.IntegerField()
+    marks_in_institute_exam=models.IntegerField()
+    monthly_family_income=models.IntegerField()
+    other_scholarship=models.BooleanField()
+    applied_on=models.DateTimeField(auto_now=True)

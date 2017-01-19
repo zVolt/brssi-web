@@ -54,3 +54,9 @@ class AdminTest(admin.ModelAdmin):
 class AdminTestAttempt(admin.ModelAdmin):
     list_display = ('student','test','date_of_examination','marks_obtained','remarks')
     filter_list=('date_of_examination','faculty','student','test')
+
+
+@admin.register(Scholarship)
+class AdminScholarship(admin.ModelAdmin):
+    list_display = ('student','marks_in_board_exam','marks_in_institute_exam','monthly_family_income','other_scholarship','applied_on')
+    filter_list=('monthly_family_income','other_scholarship','marks_in_board_exam','marks_in_institute_exam','applied_on')

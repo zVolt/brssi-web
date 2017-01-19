@@ -1,7 +1,7 @@
 from django import forms
 from django.db import models
-from django.forms import ModelForm,TextInput,DateInput,Select,SelectMultiple,Textarea,NumberInput,EmailInput
-from .models import Student
+from django.forms import ModelForm,TextInput,DateInput,Select,SelectMultiple,Textarea,NumberInput,EmailInput,CheckboxInput,BooleanField
+from .models import Student,Scholarship
 
 class LoginForm(forms.Form):
     email=forms.EmailField()
@@ -25,5 +25,21 @@ class StudentForm(ModelForm):
             'school_class':Select(attrs={'class':'form-control','placeholder':'school_class'}),
             'subjects':SelectMultiple(attrs={'class':'form-control','placeholder':'subjects'}),
             'preferred_branch':Select(attrs={'class':'form-control','placeholder':'preferred_branch'})
+        }
 
+class ScholarshipForm(ModelForm):
+    class Meta:
+        model = Scholarship
+        fields = ['marks_in_board_exam','marks_in_institute_exam','monthly_family_income','other_scholarship']
+        widgets = {
+        'marks_in_board_exam': NumberInput(attrs={'class': 'form-control','placeholder': 'Marks in board examinations'}),
+        'marks_in_institute_exam': NumberInput(attrs={'class': 'form-control','placeholder': 'Marks in BRSSI examinations'}),
+        'monthly_family_income': NumberInput(attrs={'class': 'form-control','placeholder': 'Monthly income in rupees'}),
+        'other_scholarship': CheckboxInput(attrs={'class': 'checkbox'})
+        }
+        labels = {
+        'other_scholarship': 'Do you receive any scholarship from other source ?',
+        'marks_in_board_exam': 'Marks obtained in Board exam (in percentage)',
+        'marks_in_institute_exam':'Marks obtained in Institute exam (in percentage)',
+        'monthly_family_income':'Monthly family income in Rupees',
         }
