@@ -1,8 +1,5 @@
 {% extends 'base.html' %} {% load static %} {% block head %}
-<link rel="stylesheet" type="text/css" href="{% static 'css/student.css' %}">
-{% block student_head %}
-{% endblock %}
- {% endblock %} {% block body %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/student.css' %}"> {% block student_head %} {% endblock %} {% endblock %} {% block body %}
 <div class="container-fluid">
     <div class="col-xs-3 hidden-sm hidden-md hidden-lg">
         <div class="container-fluid">
@@ -81,8 +78,9 @@
     </div>
     <div class="col-sm-8 col-xs-9 col-lg-7">
         <div class="container-fluid">
+            {% block content %}
             <h2>Welcome {{request.user.username}}</h2>
-            <hr/> {% block content %} {% endblock %}
+            <hr/> {% endblock %}
         </div>
     </div>
 </div>

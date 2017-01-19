@@ -1,7 +1,8 @@
 from django import forms
 from django.db import models
-from django.forms import ModelForm,TextInput,DateInput,Select,SelectMultiple,Textarea,NumberInput,EmailInput,CheckboxInput,BooleanField
+from django.forms import ModelForm,TextInput,DateInput,Select,SelectMultiple,Textarea,NumberInput,EmailInput,CheckboxInput,BooleanField,RadioSelect
 from .models import Student,Scholarship
+
 
 class LoginForm(forms.Form):
     email=forms.EmailField()
@@ -27,19 +28,21 @@ class StudentForm(ModelForm):
             'preferred_branch':Select(attrs={'class':'form-control','placeholder':'preferred_branch'})
         }
 
+
 class ScholarshipForm(ModelForm):
+    declaration = BooleanField(label='I agree')
     class Meta:
         model = Scholarship
-        fields = ['marks_in_board_exam','marks_in_institute_exam','monthly_family_income','other_scholarship']
+        fields = ['marks_in_board_exam','marks_in_institute_exam','monthly_family_income','other_scholarship','declaration']
         widgets = {
-        'marks_in_board_exam': NumberInput(attrs={'class': 'form-control','placeholder': 'Marks in board examinations'}),
-        'marks_in_institute_exam': NumberInput(attrs={'class': 'form-control','placeholder': 'Marks in BRSSI examinations'}),
-        'monthly_family_income': NumberInput(attrs={'class': 'form-control','placeholder': 'Monthly income in rupees'}),
-        'other_scholarship': CheckboxInput(attrs={'class': 'checkbox'})
+            'marks_in_board_exam': NumberInput(attrs={'class': 'form-control','placeholder': 'Marks in board examinations'}),
+            'marks_in_institute_exam': NumberInput(attrs={'class': 'form-control','placeholder': 'Marks in BRSSI examinations'}),
+            'monthly_family_income': NumberInput(attrs={'class': 'form-control','placeholder': 'Monthly income in rupees'}),
+            'other_scholarship': RadioSelect(attrs={'class': 'radio',},choices=((True,'Yes'),(False,'No'))),
         }
         labels = {
-        'other_scholarship': 'Do you receive any scholarship from other source ?',
-        'marks_in_board_exam': 'Marks obtained in Board exam (in percentage)',
-        'marks_in_institute_exam':'Marks obtained in Institute exam (in percentage)',
-        'monthly_family_income':'Monthly family income in Rupees',
+            'other_scholarship': 'Do you receive any scholarship from other source ?',
+            'marks_in_board_exam': 'Marks obtained in Board exam (in percentage)',
+            'marks_in_institute_exam':'Marks obtained in Institute exam (in percentage)',
+            'monthly_family_income':'Monthly family income in Rupees',
         }

@@ -106,6 +106,9 @@ class Test(models.Model):
     subject=models.ForeignKey(Subject)
     total_marks=models.CharField(max_length=50)
 
+    def __str__(self):
+        return str(self.test_code)+" ("+str(subject)+")"
+
 
 class TestAttempt(models.Model):
     student=models.ForeignKey(Student)
@@ -123,3 +126,17 @@ class Scholarship(models.Model):
     monthly_family_income=models.IntegerField()
     other_scholarship=models.BooleanField()
     applied_on=models.DateTimeField(auto_now=True)
+
+
+class StudyMaterial(models.Model):
+    author=models.ForeignKey(Faculty)
+    subject=models.ForeignKey(Subject)
+    upload_on=models.DateTimeField(auto_now=True)
+    file=models.FileField(upload_to='')
+
+
+class InappropriateReport(models.Model):
+    reporter=models.ForeignKey(User)
+    comments=models.TextField()
+    study_material=models.ForeignKey(StudyMaterial)
+    timestamp=models.DateTimeField(auto_now=True)
