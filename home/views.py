@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import Notice, Testimonial
-from django.contrib.auth import login,authenticate
+from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required,user_passes_test
 from .forms import StudentForm,ScholarshipForm
@@ -42,6 +42,10 @@ def index(request):
 def disclaimer(request):
     return render(request,'home/disclaimer.html')
 
+@login_required
+def user_logout(request):
+    logout(request)
+    return redirect('/login/')
 
 def user_login(request):
     data=dict()

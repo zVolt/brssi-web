@@ -81,9 +81,21 @@
                     </li>
                     <li><a href="#">Contact</a></li>
                     <li><a href="#">Gallery</a></li>
+                    {% if user.is_authenticated %}
                     <li>
-                        <a href="/login/"><img class="login-icon" src="{% static '/img/login-icon.png' %}" /></a>
+                      <a href="/student/profile/">{{user.username}}</a>
                     </li>
+                    <li>
+                        <a href="/logout/" title="Sign out"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+                    </li>
+                    {%else%}
+                    <li>
+                        <a href="/login/" title="Sign in">
+                          <!-- <img class="login-icon" src="{% static '/img/login-icon.png' %}" /> -->
+                          <i class="fa fa-sign-in" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    {%endif%}
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
