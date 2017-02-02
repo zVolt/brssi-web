@@ -1,0 +1,22 @@
+{% extends 'base.html' %} {% load static %} {% block body %}
+<div class="container">
+{% if result %}
+  {% for type,list in result_map.items %}
+  <h2>{{type}}</h2>
+  {% if list %}
+  <ol>
+    {% for result in list %}
+      <li>{{result.name}} - <a href="{{result.link}}">{{result.link}}</a></li>
+    {% endfor %}
+  </ol>
+  {% else %}
+    <div class="alert alert-default">No Results in this category</div>
+  {% endif %}
+  {% endfor %}
+{% else %}
+  <div class="alert alert-warning">
+    {{msg}}
+  </div>
+{% endif %}
+</div>
+{% endblock %}

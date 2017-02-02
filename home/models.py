@@ -140,3 +140,21 @@ class InappropriateReport(models.Model):
     comments=models.TextField()
     study_material=models.ForeignKey(StudyMaterial)
     timestamp=models.DateTimeField(auto_now=True)
+
+class BoardResultType(models.Model):
+    name=models.CharField(max_length=100)
+    added_on=models.DateTimeField(auto_now=True)
+    author=models.ForeignKey(User)
+
+    def __str__(self):
+        return str(self.name)
+
+class BoardResult(models.Model):
+    name=models.CharField(max_length=100)
+    link=models.CharField(max_length=1000)
+    added_on=models.DateTimeField(auto_now=True)
+    author=models.ForeignKey(User)
+    result_type=models.ForeignKey(BoardResultType)
+
+    def __str__(self):
+        return str(self.name)+' - '+str(self.link)

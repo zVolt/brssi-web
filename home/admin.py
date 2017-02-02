@@ -60,3 +60,15 @@ class AdminTestAttempt(admin.ModelAdmin):
 class AdminScholarship(admin.ModelAdmin):
     list_display = ('student','marks_in_board_exam','marks_in_institute_exam','monthly_family_income','other_scholarship','applied_on')
     filter_list=('monthly_family_income','other_scholarship','marks_in_board_exam','marks_in_institute_exam','applied_on')
+
+
+@admin.register(BoardResultType)
+class AdminBoardResultType(admin.ModelAdmin):
+    list_display = ('name','author','added_on')
+    filter_list = ('added_on','author')
+
+
+@admin.register(BoardResult)
+class AdminBoardResult(admin.ModelAdmin):
+    list_display = ('name','link','author','added_on')
+    filter_list = ('added_on','author')
