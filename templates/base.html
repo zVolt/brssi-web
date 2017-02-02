@@ -58,7 +58,7 @@
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse" >
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/">Home</a></li>
                     <li><a href="#">Admission</a></li>
@@ -91,8 +91,7 @@
                     {%else%}
                     <li>
                         <a href="/login/" title="Sign in">
-                          <!-- <img class="login-icon" src="{% static '/img/login-icon.png' %}" /> -->
-                          <i class="fa fa-sign-in" aria-hidden="true"></i>
+                          <img class="login-icon" src="{% static '/img/login-icon.png' %}" />
                         </a>
                     </li>
                     {%endif%}

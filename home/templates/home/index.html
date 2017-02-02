@@ -9,11 +9,11 @@
         $('.slider').slick({
             dots: true,
             infinite: true,
-            speed: 300,
             slidesToShow: 1,
             slidesToScroll: 1,
             autoplay: true,
-            autoplaySpeed: 2000,
+            arrows:false,
+            autoplaySpeed: 4000,
         });
         $('.slider').on('beforeChange', function(event, slick, currentSlide, nextSlide) {
             if (nextSlide == 0) {
@@ -36,6 +36,7 @@
             autoplaySpeed: 3000,
             slidesToShow: 1,
             slidesToScroll: 1,
+            arrows:false,
         });
         $('.video-slider').slick({
             dots: true,
@@ -44,6 +45,7 @@
             autoplaySpeed: 3000,
             slidesToShow: 1,
             slidesToScroll: 1,
+            arrows:false,
         });
 
         $('#primary_navbar').removeClass('navbar-inverse');
