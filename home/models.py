@@ -107,7 +107,7 @@ class Test(models.Model):
     total_marks=models.CharField(max_length=50)
 
     def __str__(self):
-        return str(self.test_code)+" ("+str(subject)+")"
+        return str(self.test_code)+" ("+str(self.subject)+")"
 
 
 class TestAttempt(models.Model):
