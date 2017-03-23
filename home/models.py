@@ -37,6 +37,8 @@ class Qualification(models.Model):
     board=models.CharField(max_length=100)
     result=models.CharField(max_length=100)
 
+    def __str__(self):
+        return ' '.join([str(self.qualification_name),str(self.school),str(self.board),str(self.result)])
 
 
 class Student(models.Model):
@@ -60,13 +62,13 @@ class Student(models.Model):
         ('12','XII'),
     )
     user=models.OneToOneField(User, on_delete=models.CASCADE)
-    name=models.CharField(max_length=100)
+    #name=models.CharField(max_length=100)
     mothers_name=models.CharField(max_length=100)
     date_of_birth=models.DateField()
     gender=models.CharField(max_length=10,choices=GENDER_CHOICES)
     address=models.TextField()
     contact_number=models.CharField(max_length=13)
-    email_address=models.EmailField()
+    #email_address=models.EmailField()
     school_name=models.CharField(max_length=100)
     school_board=models.ForeignKey(Board)
     school_class=models.CharField(max_length=5,choices=CLASS_CHOICES)
@@ -75,22 +77,23 @@ class Student(models.Model):
     joined_on=models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return str(self.name)+'('+str(self.user.username)+')'
+        return str(self.user.first_name)+str(self.user.last_name)+'('+str(self.user.username)+')'
 
 
 class Faculty(models.Model):
     user=models.OneToOneField(User, on_delete=models.CASCADE)
-    name=models.CharField(max_length=100)
+    #name=models.CharField(max_length=100)
     address=models.TextField()
     contact_number=models.CharField(max_length=13)
-    email_address=models.EmailField()
+    #email_address=models.EmailField()
     high_school=models.ForeignKey(Qualification,related_name='high_school')
     intermediate=models.ForeignKey(Qualification,related_name='intermediate')
     highest_qualification=models.ForeignKey(Qualification,related_name='highest_qualification')
     joined_on=models.DateTimeField(auto_now=True)
+    teaches=models.ManyToManyField(Subject)
 
     def __str__(self):
-        return str(self.name)+'('+str(self.user.username)+')'
+        return str(self.user.first_name)+str(self.user.last_name)+'('+str(self.user.username)+')'
 
 
 class Testimonial(models.Model):

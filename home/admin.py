@@ -30,12 +30,12 @@ class AdminQualification(admin.ModelAdmin):
 
 @admin.register(Student)
 class AdminStudent(admin.ModelAdmin):
-    list_display = ('name', 'mothers_name','date_of_birth','gender','joined_on')
+    list_display = ('user', 'mothers_name','date_of_birth','gender','joined_on')
 
 
 @admin.register(Faculty)
 class AdminFaculty(admin.ModelAdmin):
-    list_display = ('name', 'email_address','highest_qualification')
+    list_display = ('user','highest_qualification')
 
 
 @admin.register(Testimonial)

@@ -6,12 +6,12 @@
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display:         flex;
-}
-ol{
-  list-style-type: upper-roman;
-  .declaration{
+  display: flex; }
+
+ol {
+  list-style-type: upper-roman; }
+  ol .declaration {
     padding-left: 0;
-    list-style-type: decimal;
-  }
-}
+    list-style-type: decimal; }
+
+/*# sourceMappingURL=student.css.map */

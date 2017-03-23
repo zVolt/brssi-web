@@ -1,1 +1,35 @@
-{% extends 'base.html' %} {% load static %}
+{% extends 'base.html' %} {% load static %} {% load custom_filters %} {% block body %}
+<div class="container">
+    {% for faculty in faculties%}
+    <div class="col-md-3 col-sm-4 col-xs-6">
+        <div class="thumbnail">
+            <div class="caption">
+                <h3 class="text-center">{{faculty.user|full_name}}</h3>
+                <p>
+                  <i class="fa fa-home"></i> <b>Address</b> <br> {{faculty.address}} <br/>
+                  <br/>
+                <i class="fa fa-graduation-cap"></i> <b>High School</b> <br> {{faculty.high_school}}<br/>
+                <br/>
+                <i class="fa fa-graduation-cap"></i> <b>Intermediate</b> <br> {{faculty.intermediate}}<br/>
+                <br/>
+                <i class="fa fa-graduation-cap"></i> <b>Highest Qualification</b> <br> {{faculty.highest_qualification}}<br/>
+                <br/>
+                <i class="fa fa-envelope"></i> <b>Email</b> <br> {{faculty.user.email}}<br/>
+                <br/>
+                <i class="fa fa-phone"></i> <b>Phone</b> <br> {{faculty.contact}}
+                <br/>
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %} -Name – Somnath Saha (B.Tech in ECE, WBUT) -Schooling (X & XII) – Barrackpore Govt. High School (WBBSE & WBCHSE) Results – Madhyamik Examination – 1st Division with Star (85%) -Higher Secondary Examination – 1st Division with Star -College
+    – B.P Poddar Institute of Management & Technology (Under WBUT) Results – 8.29 (Degree Grade Point Average/ Cumulative Grade Point Average) -Address – Holding No - 52(34/3), B.T Road, Sastitola, PO -Talpukur, PS - Titagarh, Kolkata-700123 Wants to
+    teach – English, Mathematics, L.SC, P.SC, Biology -Contact Number – 7278709710 -Email ID – sahasomnath93@gmail.com Training – Basic Telecommunication (Bharat Sanchar Nigam Limited) Name – Rajat Das (B.Tech in EE, WBUT) Schooling (X & XII) – Barrackpore
+    Govt. High School (WBBSE & WBCHSE) Results – Madhyamik Examination – 1st Division with Star (86%) Higher Secondary Examination – 1st Division with Star College – F.I.E.M (Under WBUT) Results – Not available Address – Rabindrapally, PO - Nonachandan
+    Pukur, Barrackpore Wants to teach – Mathematics, L.SC, P.SC, Chemistry, Biology Contact Number – 8981444507 Email ID – rajatdas999@gmail.com Training – Not available Name – Sabyasachi Chatterjee (B.Tech in ECE, WBUT) Schooling (X & XII) – B.S.R.S.U.V
+    (WBBSE & WBCHSE) Results – Madhyamik Examination – 1st Division with Star (82.5%) Higher Secondary Examination – 1st Division College – B.P Poddar Institute of Management & Technology (Under WBUT) Results – 75.5% Address – Lakurdi (Battala), Burdwan-713102
+    Wants to teach – Mathematics, Physical Science Contact Number – 7602572146 Email ID – sabyasachichat1@gmail.com Training – Not available
+
+
+</div>
+{% endblock %}

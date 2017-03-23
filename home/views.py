@@ -4,7 +4,7 @@ from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required,user_passes_test
 from .forms import StudentForm,ScholarshipForm
-from .models import Student,TestAttempt,BoardResultType
+from .models import Student,TestAttempt,BoardResultType,Faculty
 
 def is_student(user):
     return user in Group.objects.get(name='students').user_set.all()
@@ -135,10 +135,14 @@ def student_result(request):
     return render(request,'home/student_result.html',data)
 
 
-@login_required
-@user_passes_test(is_faculty)
 def faculty(request):
     data=dict()
+    try:
+        data['faculties']=Faculty.objects.all()
+        data['result']=True
+    except Exception as ex:
+        data['result']=False
+        data['msg']=str(ex)
     return render(request,'home/faculty.html',data)
 
 
