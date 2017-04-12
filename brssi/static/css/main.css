@@ -22,4 +22,11 @@
 select.form-control:not([size]):not([multiple]) {
   height: 36px; }
 
+.errorlist {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.9em;
+  color: red; }
+
 /*# sourceMappingURL=main.css.map */

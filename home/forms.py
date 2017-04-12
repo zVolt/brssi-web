@@ -3,11 +3,11 @@ from django.db import models
 from django.forms import ModelForm,TextInput,DateInput,Select,SelectMultiple,Textarea,NumberInput,EmailInput,CheckboxInput,BooleanField,RadioSelect
 from .models import Student,Scholarship
 from django.contrib.auth.models import User
-
+from nocaptcha_recaptcha.fields import NoReCaptchaField
 
 class UserForm(forms.Form):
-    class Meta:
-        model = User
+    full_name = forms.CharField(min_length=3, widget=TextInput(attrs={'class': 'form-control','placeholder': 'Full name'}))
+    email = forms.EmailField(widget=TextInput(attrs={'class': 'form-control','placeholder': 'Email'}))
 
 class LoginForm(forms.Form):
     email=forms.EmailField()
@@ -15,9 +15,13 @@ class LoginForm(forms.Form):
 
 
 class StudentForm(ModelForm):
+    full_name = forms.CharField(min_length=3, widget=TextInput(attrs={'class': 'form-control','placeholder': 'Full name'}))
+    email = forms.EmailField(widget=TextInput(attrs={'class': 'form-control','placeholder': 'Email'}))
+    username = forms.CharField(min_length=3, widget=TextInput(attrs={'class': 'form-control','placeholder': 'Username'}))
+    captcha = NoReCaptchaField()
     class Meta:
         model = Student
-        fields = ['mothers_name', 'date_of_birth','gender','address','contact_number','school_name','school_board','school_class','subjects','preferred_branch']
+        fields = ['full_name','email','username','mothers_name', 'date_of_birth','gender','contact_number','school_name','school_board','school_class','subjects','preferred_branch','address','captcha']
         widgets = {
             #'user__lastname': TextInput(attrs={'class': 'form-control','placeholder': 'Your full name'}),
             'mothers_name': TextInput(attrs={'class': 'form-control','placeholder': 'Mother\'s full name'}),
@@ -32,7 +36,22 @@ class StudentForm(ModelForm):
             'subjects':SelectMultiple(attrs={'class':'form-control','placeholder':'subjects'}),
             'preferred_branch':Select(attrs={'class':'form-control','placeholder':'preferred_branch'})
         }
-
+    def save(self,commit=True):
+        user=User(username=self.cleaned_data['username'],email=self.cleaned_data['email'])
+        name=self.cleaned_data['full_name'].split()
+        if len(name)==1:
+            user.first_name=name[0]
+        elif len(name)==2:
+            user.first_name=name[0]
+            user.last_name=name[1]
+        else:
+            user.first_name=' '.join(name[:-1])
+            user.last_name=name[-1]
+        if commit:
+            user.save()
+            student=super(StudentForm,self).save(commit=False)
+            student.user=user
+        return super(StudentForm,self).save(commit=commit)
 
 class ScholarshipForm(ModelForm):
     declaration = BooleanField(label='I agree')

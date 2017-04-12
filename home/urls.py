@@ -15,6 +15,10 @@ urlpatterns = [
     url(r'^student/scholarship/apply/$', views.student_scholarship_apply, name='student_scholarship_apply'),
     url(r'^student/result/$', views.student_result, name='student_result'),
 
+    url(r'^admission/$', views.admission, name='admission'),
+    url(r'^admission/foundation/$', views.admissionFoundation, name='admissionFoundation'),
+    url(r'^admission/engineering$', views.admissionEngineering, name='admissionEngineering'),
+
     url(r'^faculty/$', views.faculty, name='faculty'),
     url(r'^moderator/$', views.moderator, name='moderator'),
     url(r'^disclaimer/$', views.disclaimer, name='disclaimer'),

@@ -3,8 +3,10 @@ from .models import Notice, Testimonial
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required,user_passes_test
-from .forms import StudentForm,ScholarshipForm
+from .forms import StudentForm,ScholarshipForm,UserForm
 from .models import Student,TestAttempt,BoardResultType,Faculty
+from django.core.mail import send_mail
+
 
 def is_student(user):
     return user in Group.objects.get(name='students').user_set.all()
@@ -165,3 +167,31 @@ def student_board_result(request):
         data['result']=False
         data['msg']=str(ex)
     return render(request,'home/board_result.html',data)
+
+def admission(request):
+    data=dict()
+    return render(request,'home/admission.html',data)
+
+def admissionFoundation(request):
+    data=dict()
+    if request.method == 'POST':
+        studentForm=StudentForm(request.POST)
+        if studentForm.is_valid():
+            studentForm.save()
+        else:
+            data['foundation_form']=studentForm
+    else:
+        data['foundation_form']=StudentForm()
+    return render(request,'home/admission.html',data)
+
+def admissionEngineering(request):
+    data=dict()
+    if request.method == 'POST':
+        studentForm=StudentForm(request.POST)
+        if studentForm.is_valid():
+            studentForm.save()
+        else:
+            data['engineering_form']=studentForm
+    else:
+        data['engineering_form']=StudentForm()
+    return render(request,'home/admission.html',data)

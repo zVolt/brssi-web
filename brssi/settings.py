@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'nocaptcha_recaptcha',
 	'home',
 ]
 
@@ -137,3 +138,11 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 LOGIN_URL="/login/"
+NORECAPTCHA_SITE_KEY= '6LffsxwUAAAAAIGICPtaJLxVo0CXvNhEYOGAxWwQ'
+NORECAPTCHA_SECRET_KEY= '6LffsxwUAAAAAKlLTyINtD1Xms4br9fvEHWJCQci'
+
+EMAIL_HOST = 'smtp.sendgrid.net'
+EMAIL_HOST_USER = 'sendgrid_username'
+EMAIL_HOST_PASSWORD = 'sendgrid_password'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True 
