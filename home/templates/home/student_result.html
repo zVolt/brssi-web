@@ -1,47 +1,50 @@
 {% extends 'home/student.html' %} {% load static %} {% block student_head %}
-<link rel="stylesheet" type="text/css" href="{% static 'components/datatables/media/css/dataTables.bootstrap4.min.css' %}"> {% endblock %} {% block script %}
-<script src="{% static 'components/datatables/media/js/jquery.dataTables.min.js'%}"></script>
-<script src="{% static 'components/datatables/media/js/dataTables.bootstrap4.min.js'%}"></script>
-<script>
-    $(document).ready(function() {
-        $('#resultData').DataTable();
-    });
-</script>
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'components/datatables/media/css/dataTables.bootstrap4.min.css' %}"> {% endblock %}
+{% block script %}
+    <script src="{% static 'components/datatables/media/js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'components/datatables/media/js/dataTables.bootstrap4.min.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            $('#resultData').DataTable();
+        });
+    </script>
 {% endblock %} {% block content %}
-<div class="container-fluid">
-  <h2>Results</h2>
-  <hr/>
-    {% if attempts %}
-    <table id="resultData" class="table table-striped">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Test ID</th>
-                <th>Subject</th>
-                <th>Exam Date</th>
-                <th>Marks Obtained</th>
-                <th>Total Marks</th>
-                <th>Remarks</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for attempt in attempts%}
-            <tr>
-                <td>{{forloop.counter}}</td>
-                <td>{{attempt.test.test_code}}</td>
-                <td>{{attempt.test.subject.name}}</td>
-                <td>{{attempt.date_of_examination}}</td>
-                <td>{{attempt.marks_obtained}}</td>
-                <td>{{attempt.test.total_marks}}</td>
-                <td>{{attempt.remarks}}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    {% else %}
-    <div class="alert alert-info">
-        <p>You haven't taken any test yet. Come back after faculty update your information in case you have attempted a test or after taking a test</p>
+    <div class="container-fluid">
+        <h2>Results</h2>
+        <hr/>
+        {% if attempts %}
+            <table id="resultData" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Test ID</th>
+                    <th>Subject</th>
+                    <th>Exam Date</th>
+                    <th>Marks Obtained</th>
+                    <th>Total Marks</th>
+                    <th>Remarks</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for attempt in attempts %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ attempt.test.test_code }}</td>
+                        <td>{{ attempt.test.subject.name }}</td>
+                        <td>{{ attempt.date_of_examination }}</td>
+                        <td>{{ attempt.marks_obtained }}</td>
+                        <td>{{ attempt.test.total_marks }}</td>
+                        <td>{{ attempt.remarks }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="alert alert-info">
+                <p>You haven't taken any test yet. Come back after faculty update your information in case you have
+                    attempted a test or after taking a test</p>
+            </div>
+        {% endif %}
     </div>
-    {% endif %}
-</div>
 {% endblock %}

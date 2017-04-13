@@ -1,49 +1,52 @@
 {% extends 'home/student.html' %} {% load static %} {% block student_head %}
-<link rel="stylesheet" type="text/css" href="{% static 'components/datatables/media/css/dataTables.bootstrap4.min.css' %}"> {% endblock %} {% block script %}
-<script src="{% static 'components/datatables/media/js/jquery.dataTables.min.js'%}"></script>
-<script src="{% static 'components/datatables/media/js/dataTables.bootstrap4.min.js'%}"></script>
-<script>
-    $(document).ready(function() {
-        $('#resultData').DataTable();
-    });
-</script>
+    <link rel="stylesheet" type="text/css"
+          href="{% static 'components/datatables/media/css/dataTables.bootstrap4.min.css' %}"> {% endblock %}
+{% block script %}
+    <script src="{% static 'components/datatables/media/js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'components/datatables/media/js/dataTables.bootstrap4.min.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            $('#resultData').DataTable();
+        });
+    </script>
 {% endblock %} {% block content %}
-<div class="container-fluid">
-  <h2>Student Material</h2>
-  <hr/>
-    {% if files %}
-    <table id="resultData" class="table table-striped">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Faculty</th>
-                <th>Filename</th>
-                <th>Subject</th>
-                <th>Upload On</th>
-                <th>Size</th>
-                <th>Download</th>
-                <th>Report Inappropriate</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for file in files%}
-            <tr>
-                <td>{{forloop.counter}}</td>
-                <td>{{file.author.username}}</td>
-                <td>{{file.name}}</td>
-                <td>{{file.subject.name}}</td>
-                <td>{{file.uploaded_on}}</td>
-                <td>{{file.size}}</td>
-                <td><a href="#" class="btn btn-default"><i class="fa fa-download"></i></a></td>
-                <td><a href="/student/material/{{file.id}}/report/" class="btn btn-danger"><i class="fa fa-flag"></i></a></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    {% else %}
-    <div class="alert alert-info">
-        <p>No files are shared with you, come back later to checkout study materials shared with you.</p>
+    <div class="container-fluid">
+        <h2>Student Material</h2>
+        <hr/>
+        {% if files %}
+            <table id="resultData" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Faculty</th>
+                    <th>Filename</th>
+                    <th>Subject</th>
+                    <th>Upload On</th>
+                    <th>Size</th>
+                    <th>Download</th>
+                    <th>Report Inappropriate</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for file in files %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ file.author.username }}</td>
+                        <td>{{ file.name }}</td>
+                        <td>{{ file.subject.name }}</td>
+                        <td>{{ file.uploaded_on }}</td>
+                        <td>{{ file.size }}</td>
+                        <td><a href="#" class="btn btn-default"><i class="fa fa-download"></i></a></td>
+                        <td><a href="/student/material/{{ file.id }}/report/" class="btn btn-danger"><i
+                                class="fa fa-flag"></i></a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="alert alert-info">
+                <p>No files are shared with you, come back later to checkout study materials shared with you.</p>
+            </div>
+        {% endif %}
     </div>
-    {% endif %}
-</div>
 {% endblock %}

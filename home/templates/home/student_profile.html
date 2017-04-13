@@ -1,45 +1,47 @@
 {% extends 'home/student.html' %} {% load static %} {% block content %}
 
-    <h2>Profile <small>What we know till now</small></h2>
+    <h2>Profile
+        <small>What we know till now</small>
+    </h2>
     <hr/>
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <div class="container">
-                        {% if result is True %}
-                          <div class="alert alert-info">
-                            <p>{{msg}}</p>
-                            {% if error %}
-                              <hr/>
-                              <h5>Error Occured</h5>
-                              <p>{{error}}</p>
-                            {% endif %}
-                          </div>
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="container">
+                {% if result is True %}
+                    <div class="alert alert-info">
+                        <p>{{ msg }}</p>
+                        {% if error %}
+                            <hr/>
+                            <h5>Error Occured</h5>
+                            <p>{{ error }}</p>
                         {% endif %}
-                        {% if student_form %}
-                          <form method="post" action="." >
-                            {%csrf_token%}
-                              {% for field in student_form %}
-                              <div class="form-group">
-                                  <label for="{{field.name}}">{{field.label}}</label>
-                                  {{field}}
-                              </div>
-                              {% endfor %}
-                              <div class="form-group">
-                                  <input class="btn btn-primary" type="submit" value="Update" />
-                                  <input class="btn btn-danger" type="reset" value="Clear" />
-                              </div>
-                          </form>
-                        {% else %}
-                          <div class="alert alert-warning">
-                              <p>{{msg}}</p>
-                              {% if error %}
-                                <hr/>
-                                <h5>Error Occured</h5>
-                                <p>{{error}}</p>
-                              {% endif %}
-                          </div>
+                    </div>
+                {% endif %}
+                {% if student_form %}
+                    <form method="post" action=".">
+                        {% csrf_token %}
+                        {% for field in student_form %}
+                            <div class="form-group">
+                                <label for="{{ field.name }}">{{ field.label }}</label>
+                                {{ field }}
+                            </div>
+                        {% endfor %}
+                        <div class="form-group">
+                            <input class="btn btn-primary" type="submit" value="Update"/>
+                            <input class="btn btn-danger" type="reset" value="Clear"/>
+                        </div>
+                    </form>
+                {% else %}
+                    <div class="alert alert-warning">
+                        <p>{{ msg }}</p>
+                        {% if error %}
+                            <hr/>
+                            <h5>Error Occured</h5>
+                            <p>{{ error }}</p>
                         {% endif %}
-                </div>
+                    </div>
+                {% endif %}
             </div>
         </div>
+    </div>
 {% endblock %}

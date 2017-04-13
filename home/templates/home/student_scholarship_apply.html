@@ -1,39 +1,45 @@
 {% extends 'home/student.html' %} {% load static %} {% load custom_filters %} {% block content %}
-<div class="container-fluid">
-    <h2>Apply for Scholarship</h2>
-    <form action="." method="post"></form>
-    {% for field in scholarship_form %}
-    {% if field|field_type == 'RadioSelect' %}
-    <div class="form-group">
-       {{field.label}}
-       <br/>
-      {% for radio in field %}
-        <label class="radio-inline">{{radio}} {{radio.label}}</label>
-      {% endfor %}
+    <div class="container-fluid">
+        <h2>Apply for Scholarship</h2>
+        <form action="." method="post"></form>
+        {% for field in scholarship_form %}
+            {% if field|field_type == 'RadioSelect' %}
+                <div class="form-group">
+                    {{ field.label }}
+                    <br/>
+                    {% for radio in field %}
+                        <label class="radio-inline">{{ radio }} {{ radio.label }}</label>
+                    {% endfor %}
+                </div>
+            {% elif field.label == 'I agree' %}
+                <div class="form-group">
+                    <h4>Declaration</h4>
+                    <ol class="declaration">
+                        <li>This is the only application submitted by me.</li>
+                        <li>I hereby declare that all the statements made in the applications are true to the best of my
+                            knowledge and belief.
+                        </li>
+                        <li>Certified that I have read and understood the rules &amp; regulation and fulfil the
+                            stipulated eligibility criteria.
+                        </li>
+                        <li>I understand that my candidature is liable to be cancelled at any stage in case any
+                            discrepancy is noticed &amp; No change in application is permitted after submission.
+                        </li>
+                    </ol>
+                </div>
+                <div class="checkbox">
+                    <label>{{ field }}{{ field.label }}</label>
+                </div>
+            {% else %}
+                <div class="form-group">
+                    <label for="{{ field.name }}">{{ field.label }}</label> {{ field }}
+                </div>
+            {% endif %}
+        {% endfor %}
+        <div class="form-group">
+            <input class="btn btn-success" type="submit" value="Submit"/>
+            <input class="btn btn-danger" type="reset" value="Reset"/>
+        </div>
+        </form>
     </div>
-    {% elif field.label == 'I agree' %}
-    <div class="form-group">
-        <h4>Declaration</h4>
-        <ol class="declaration">
-            <li>This is the only application submitted by me.</li>
-            <li>I hereby declare that all the statements made in the applications are true to the best of my knowledge and belief.</li>
-            <li>Certified that I have read and understood the rules &amp; regulation and fulfil the stipulated eligibility criteria.</li>
-            <li>I understand that my candidature is liable to be cancelled at any stage in case any discrepancy is noticed &amp; No change in application is permitted after submission.</li>
-        </ol>
-    </div>
-    <div class="checkbox">
-        <label>{{field}}{{field.label}}</label>
-    </div>
-    {%else%}
-    <div class="form-group">
-        <label for="{{field.name}}">{{field.label}}</label> {{field}}
-    </div>
-    {% endif %}
-    {% endfor %}
-    <div class="form-group">
-        <input class="btn btn-success" type="submit" value="Submit" />
-        <input class="btn btn-danger" type="reset" value="Reset" />
-    </div>
-    </form>
-</div>
 {% endblock %}

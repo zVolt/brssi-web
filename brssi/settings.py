@@ -28,7 +28,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -39,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'nocaptcha_recaptcha',
-	'home',
+    'storages',
+    'home',
 ]
 
 MIDDLEWARE = [
@@ -72,7 +72,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'brssi.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
@@ -82,7 +81,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.10/ref/settings/#auth-password-validators
@@ -101,7 +99,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.10/topics/i18n/
@@ -123,7 +120,6 @@ DATABASES['default'].update(db_from_env)
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
@@ -132,17 +128,18 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,"brssi","static"),
+    os.path.join(BASE_DIR, "brssi", "static"),
 ]
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-LOGIN_URL="/login/"
-NORECAPTCHA_SITE_KEY= '6LffsxwUAAAAAIGICPtaJLxVo0CXvNhEYOGAxWwQ'
-NORECAPTCHA_SECRET_KEY= '6LffsxwUAAAAAKlLTyINtD1Xms4br9fvEHWJCQci'
+LOGIN_URL = "/login/"
+NORECAPTCHA_SITE_KEY = os.environ.get('BRSSI_NORECAPTCHA_SITE_KEY')
+NORECAPTCHA_SECRET_KEY = os.environ.get('BRSSI_NORECAPTCHA_SECRET_KEY')
 
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'sendgrid_username'
-EMAIL_HOST_PASSWORD = 'sendgrid_password'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True 
+EMAIL=os.environ.get('BRSSI_EMAIL')
+EMAIL_PASSWORD=os.environ.get('BRSSI_EMAIL_PASSWORD')
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
+DROPBOX_OAUTH2_TOKEN=os.environ.get('BRSSI_DROPBOX_OAUTH_TOKEN')
