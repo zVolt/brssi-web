@@ -115,7 +115,8 @@ USE_TZ = True
 
 # Update database configuration with $DATABASE_URL.
 db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'].update(db_from_env)
+if not DEBUG:
+    DATABASES['default'].update(db_from_env)
 
 # Honor the 'X-Forwarded-Proto' header for request.is_secure()
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
@@ -137,9 +138,9 @@ LOGIN_URL = "/login/"
 NORECAPTCHA_SITE_KEY = os.environ.get('BRSSI_NORECAPTCHA_SITE_KEY')
 NORECAPTCHA_SECRET_KEY = os.environ.get('BRSSI_NORECAPTCHA_SECRET_KEY')
 
-EMAIL=os.environ.get('BRSSI_EMAIL')
-EMAIL_PASSWORD=os.environ.get('BRSSI_EMAIL_PASSWORD')
+EMAIL = os.environ.get('BRSSI_EMAIL')
+EMAIL_PASSWORD = os.environ.get('BRSSI_EMAIL_PASSWORD')
 
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
 
-DROPBOX_OAUTH2_TOKEN=os.environ.get('BRSSI_DROPBOX_OAUTH_TOKEN')
+DROPBOX_OAUTH2_TOKEN = os.environ.get('BRSSI_DROPBOX_OAUTH_TOKEN')

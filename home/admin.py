@@ -93,3 +93,9 @@ class AdminBoardResultType(admin.ModelAdmin):
 class AdminBoardResult(admin.ModelAdmin):
     list_display = ('name', 'link', 'author', 'added_on')
     filter_list = ('added_on', 'author')
+
+
+@admin.register(Upload)
+class AdminBoardResult(admin.ModelAdmin):
+    list_display = ('file', 'type')
+    filter_list = ('type')

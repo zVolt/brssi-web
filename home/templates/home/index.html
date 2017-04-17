@@ -84,8 +84,8 @@
     <div class="slider slide-1" id="slider-index">
         <div class="slide-item first">
             <div class="container ">
-                <div class="pull-right"> <img class= "img-responsive center-block"
-                    data - lazy = "{% static 'img/rocket.png' %}" />
+                <div class="pull-right"><img class="img-responsive center-block"
+                                             data - lazy="{% static 'img/rocket.png' %}"/>
                 </div>
                 <div class="">
                     <h1> Let’s Grow together </h1>
@@ -99,8 +99,8 @@
         </div>
         <div class="slide-item second">
             <div class="container">
-                <div class="pull-right"> <img class= "img-responsive"
-                    data - lazy = "{% static 'img/gear.png' %}" />
+                <div class="pull-right"><img class="img-responsive"
+                                             data - lazy="{% static 'img/gear.png' %}"/>
                 </div>
                 <div class="">
                     <h1> Proper Guidance and Technology </h1>
@@ -116,7 +116,7 @@
         <div class="slide-item third">
             <div class="container ">
                 <div class="pull-right">
-                    <img class= "img-responsive " data - lazy = "{% static 'img/gem.png' %}" />
+                    <img class="img-responsive " data - lazy="{% static 'img/gem.png' %}"/>
                 </div>
                 <div class="">
                     <h1> Be different to be the best </h1>
@@ -226,6 +226,7 @@
                                 {% if not t.image %}
                                     <img width="100px"
                                          src="
+
                                                  {% if forloop.counter|divisibleby:2 %}{% static 'img/avatar_m.png' %}{% else %}{% static 'img/avatar_f.png' %}{% endif %}"
                                          class="pull-left img-circle" style="margin-right:15px;"/> {% else %}
                                     < img src = "{{ t.image.url }}" class
@@ -242,23 +243,23 @@
                     <div class="panel-body">
                         <div class="video-slider">
                             <div class="vslider-item" style="height:150px; background-color:#ccc">
-                                < !-- < iframe height = "300px" width = "100%"
+                                <!-- < iframe height = "300px" width = "100%"
                                 src = "https://www.youtube.com/embed/jHQGyMBtE9Y?rel=0&amp;wmode=opaque" frameborder =
                                 "0"
                                 allowfullscreen > </iframe> </div>
-                            -- >
+                            -->
+                            </div>
+                            <div class="vslider-item" style="height:150px; background-color:#ccc"></div>
+                            <div class="vslider-item" style="height:150px; background-color:#ccc"></div>
                         </div>
-                        <div class="vslider-item" style="height:150px; background-color:#ccc"></div>
-                        <div class="vslider-item" style="height:150px; background-color:#ccc"></div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div id="map" style="height:250px; background-color:#ccc"></div>
                     </div>
                 </div>
             </div>
-            <div class="panel panel-default">
-                <div class="panel-body">
-                    <div id="map" style="height:250px; background-color:#ccc"></div>
-                </div>
-            </div>
         </div>
-    </div>
     </div>
 {% endblock %}

@@ -4,7 +4,7 @@ from django.contrib.auth.models import Group
 from django.shortcuts import render, redirect
 
 from .forms import *
-from .models import Notice, Testimonial
+from .models import Notice, Testimonial, Upload
 from .models import Student, TestAttempt, BoardResultType, Faculty
 
 
@@ -61,7 +61,7 @@ def user_login(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            redirectUser(request)
+            return redirectUser(request)
         else:
             data['result'] = False
             data['msg'] = 'Username and Password combination is incorrect! Try again.'
@@ -200,12 +200,15 @@ def admission(request, type=None):
             data['heading'] = 'Engineering Admission Form'
     if 'form' in data.keys():
         data['half'] = len(data['form'].fields) / 2
+    data['offline_foundation_form']=Upload.objects.get(type=Upload.TYPE_ADMISSION_FORM)
     return render(request, 'home/admission.html', data)
 
 
 def send_email(request):
-    # gm = Gmail('zkhan1093@gmail.com', 'Google_1993')
-    # gm.send_message('Subject', 'Message')
+    from django.conf import settings
+    if settings.EMAIL and settings.EMAIL_PASSWORD:
+        gm = Gmail(settings.EMAIL, settings.EMAIL_PASSWORD)
+        gm.send_message('Subject', 'Message')
     return index(request)
 
 
@@ -216,7 +219,7 @@ class Gmail(object):
     def __init__(self, email, password):
         self.email = email
         self.password = password
-        self.server = 'smtp.gmail.com'
+        self.server = 'smtp.brssi.in'
         self.port = 587
         session = smtplib.SMTP(self.server, self.port)
         session.ehlo()
@@ -230,7 +233,7 @@ class Gmail(object):
         headers = [
             "From: " + self.email,
             "Subject: " + subject,
-            "To: " + self.email,
+            "To: " + 'zkhan1093@gmail.com',
             "MIME-Version: 1.0",
             "Content-Type: text/html"]
         headers = "\r\n".join(headers)

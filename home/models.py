@@ -197,3 +197,14 @@ class BoardResult(models.Model):
 
     def __str__(self):
         return str(self.name) + ' - ' + str(self.link)
+
+
+class Upload(models.Model):
+    TYPE_ADMISSION_FORM = 'Admission Form'
+    TYPE_SCHOLARSHIP = 'Scholarship'
+    TYPE = (
+        (TYPE_SCHOLARSHIP, 'Scholarship'),
+        (TYPE_ADMISSION_FORM, 'Admission Form'),
+    )
+    file = models.FileField(upload_to='uploads')
+    type = models.CharField(max_length=20, choices=TYPE, unique=True)
