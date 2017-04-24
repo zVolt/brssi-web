@@ -1,0 +1,47 @@
+$gray-base: #263238;
+$gray-darker: lighten($gray-base, 13.5%);
+$gray-dark: lighten($gray-base, 20%);
+$gray: lighten($gray-base, 33.5%);
+$gray-light: lighten($gray-base, 46.7%);
+$gray-lighter: lighten($gray-base, 93.5%);
+
+.footer{
+  padding-top:50px;
+  padding-bottom:50px;
+  background-color:$gray-darker;
+  margin-top:40px;
+  color:$gray-light;
+  .btn{
+    :hover,:active{
+      color:inherit;
+    }
+  }
+  a{
+    :hover,:active,:hover :active,:visited,:visited :hover{
+      color:$gray-base;
+    }
+  };
+}
+
+#body_pusher{
+  padding-top:100px;
+}
+.navbar-inverse{
+  transition: 0.3s linear;
+}
+.navbar-default{
+  padding:15px;
+  transition: 0.3s linear;
+}
+
+select.form-control:not([size]):not([multiple]){
+    height: 36px;
+}
+
+.errorlist{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.9em;
+    color: red;
+}

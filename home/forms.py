@@ -19,6 +19,19 @@ class LoginForm(forms.Form):
     password = forms.CharField(max_length=100)
 
 
+class RegistrationI(forms.Form):
+    # name
+    # mothers_name
+    # dob
+    # #set above
+    # contact_number
+    # #unique
+    # email_id
+    # #unique
+    # recaptcha
+    pass
+
+
 class FoundationStudentForm(ModelForm):
     full_name = forms.CharField(min_length=3,
                                 widget=TextInput(attrs={'class': 'form-control', 'placeholder': 'Full name'}))
